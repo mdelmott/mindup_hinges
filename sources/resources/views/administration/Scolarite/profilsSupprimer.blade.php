@@ -4,8 +4,8 @@
 
 
     <div class="row margin-top-50">
-        <div class="col-md-3 col-md-offset-1">
-            <div class="btn-group btn-group-justified margin-top-20 " role="group" aria-label="Creer un profil">
+        <div class="col-md-4 col-sm-5 col-md-offset-1 margin-top-50">
+            <div class="btn-group btn-group-justified margin-top-20" role="group" aria-label="Creer un profil">
                 <a href="{{ route("Scolarite.Profils") }}" class="btn btn-default" role="button">Creer un nouveau profil</a>
             </div>
 
@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <div class="col-md-7 col-md-offset-1">
+        <div class="col-md-6 col-sm-7 col-md-offset-1">
             {!! Form::model(['url' => 'foo/bar']) !!}
 
             {!! Form::select('eleve',
@@ -26,20 +26,20 @@
                 'Jean François' => 'Jean François'
             ],
             null, ['class' => 'form-control input-select center-block margin-bottom-15']) !!}
-            {!! Form::label('nom', 'Nom', ['class' => 'col-md-3']) !!}{!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
+            {!! Form::label('nom', 'Nom', ['class' => 'col-md-3 col-sm-3']) !!}{!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
             <div class="clearfix"></div>
-            {!! Form::label('prenom', 'Prénom', ['class' => 'col-md-3']) !!}{!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
+            {!! Form::label('prenom', 'Prénom', ['class' => 'col-md-3 col-sm-3']) !!}{!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
             <div class="clearfix"></div>
-            {!! Form::label('tel', 'Numéro de telephone', ['class' => 'col-md-3']) !!} {!! Form::text('nom', null, ['class' => "form-control input-text "]) !!}
+            {!! Form::label('tel', 'Numéro de telephone', ['class' => 'col-md-3 col-sm-3']) !!} {!! Form::text('nom', null, ['class' => "form-control input-text "]) !!}
             <div class="clearfix"></div>
-            {!! Form::label('adresse', 'Adresse', ['class' => 'col-md-3']) !!} {!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
+            {!! Form::label('adresse', 'Adresse', ['class' => 'col-md-3 col-sm-3']) !!} {!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
             <div class="clearfix"></div>
-            {!! Form::label('ville', 'Ville', ['class' => 'col-md-3']) !!} {!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
+            {!! Form::label('ville', 'Ville', ['class' => 'col-md-3 col-sm-3']) !!} {!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
             <div class="clearfix"></div>
-            {!! Form::label('remarques', 'Remarques', ['class' => 'col-md-3']) !!} {!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
+            {!! Form::label('remarques', 'Remarques', ['class' => 'col-md-3 col-sm-3']) !!} {!! Form::text('nom', null, ['class' => "form-control input-text"]) !!}
             <div class="clearfix"></div>
-            {!! Form::button('Supprimer', ['class' => 'btn btn-primary col-md-5 col-md-offset-1'])!!}
-            {!! Form::submit('Enregistrer', ['class' => 'btn btn-primary col-md-5 col-md-offset-1'])!!}
+            {!! Form::button('Supprimer', ['class' => 'btn btn-primary col-md-5 col-sm-5 col-md-offset-1 col-sm-offset-1'])!!}
+            {!! Form::submit('Enregistrer', ['class' => 'btn btn-primary col-md-5 col-sm-5 col-md-offset-1 col-sm-offset-1'])!!}
             {!! Form::close() !!}
         </div>
         <div class="clearfix"></div>

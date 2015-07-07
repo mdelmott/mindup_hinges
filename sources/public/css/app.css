@@ -6271,7 +6271,6 @@ label,
 
 .input-select{
   width: 30% !important;
-
 }
 
 
@@ -6280,3 +6279,13 @@ label,
   height: 25px;
   margin: 2px;
 }
+
+/*.body{
+  position : relative;
+}
+
+.container{
+  position: absolute;
+  top: 25%;
+  transform: translateY(-50%);
+}*/

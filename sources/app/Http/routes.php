@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', ["as"=>"administration", "uses"=>'HomeController@index']);
 
 //Uniquement pour les tests. On utilisera les controllers.
 Route::get('/Scolarite',['as'=>'Scolarite', 'uses' => function(){
@@ -30,10 +30,17 @@ Route::get('/Scolarite/Classes',['as'=>'Scolarite.Classes', 'uses' => function()
 	return view('administration.scolarite.classes');
 }]);
 
+Route::get('/Scolarite/Classes/Supprimer',['as'=>'Scolarite.Classes.Supprimer', 'uses' => function(){
+	return view('administration.scolarite.classesSupprimer');
+}]);
+
 Route::get('/Scolarite/Groupes',['as'=>'Scolarite.Groupes', 'uses' => function(){
 	return view('administration.scolarite.groupes');
 }]);
 
+Route::get('/Scolarite/Groupes/Supprimer',['as'=>'Scolarite.Groupes.Supprimer', 'uses' => function(){
+	return view('administration.scolarite.groupesSupprimer');
+}]);
 
 //Route::get('home', 'HomeController@index');
 
