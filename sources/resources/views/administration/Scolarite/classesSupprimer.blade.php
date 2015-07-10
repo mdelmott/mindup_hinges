@@ -1,4 +1,4 @@
-@extends('administration.Scolarite.template')
+@extends('administration.scolarite.template')
 
 @section('content2')
 
@@ -16,7 +16,7 @@
 
         <div class="col-md-6 col-sm-7 col-md-offset-1">
             {!! Form::model(['class' => 'form-inline', 'url' => 'foo/bar']) !!}
-                <div class="col-md-6 col-sm-5 col-md-offset-3 col-sm-offset-3">
+                <div class="col-md-6 col-sm-5 col-md-offset-3 col-sm-offset-3 margin-top-15">
                     {!! Form::select('prof',
                     [
                     "Mme Dupont" => 'Mme Dupont',
@@ -24,7 +24,7 @@
                     ],
                     null, ['class' => 'form-control']) !!}
                 </div>
-                <table class="table table-striped">
+                <table class="table table-striped margin-top-10">
                     <thead>
                     <tr><th>Nom</th><th>Prenom</th></tr>
                     </thead>
@@ -33,8 +33,8 @@
                 </table>
 
 
-                <div class="col-md-5 col-sm-6 col-md-offset-1">{!! Form::submit('Supprimer la classe', ['action' =>'SupprimerClasse','class' => 'btn btn-primary form-control'])!!}</div>
-                <div class="col-md-5 col-sm-5 col-md-offset-1">{!! Form::submit('Enregistrer', ['action' =>'EnregistrerClasse','class' => 'btn btn-primary form-control'])!!}</div>
+                <div class="col-md-5 col-sm-6 col-xs-7 col-md-offset-1">{!! Form::submit('Supprimer la classe', ['action' =>'SupprimerClasse','class' => 'btn btn-primary form-control'])!!}</div>
+                <div class="col-md-5 col-sm-5 col-xs-5 col-md-offset-1">{!! Form::submit('Enregistrer', ['action' =>'EnregistrerClasse','class' => 'btn btn-primary form-control'])!!}</div>
             {!! Form::close() !!}
         </div>
         <div class="clearfix"></div>

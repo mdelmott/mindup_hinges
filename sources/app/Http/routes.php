@@ -13,7 +13,9 @@
 
 Route::get('/', ["as"=>"administration", "uses"=>'HomeController@index']);
 
-//Uniquement pour les tests. On utilisera les controllers.
+//Uniquement pour les tests de vue. On utilisera les controllers.
+
+/* Scolarite */
 Route::get('/Scolarite',['as'=>'Scolarite', 'uses' => function(){
 	return view('administration.scolarite.profils');
 }]);
@@ -40,6 +42,24 @@ Route::get('/Scolarite/Groupes',['as'=>'Scolarite.Groupes', 'uses' => function()
 
 Route::get('/Scolarite/Groupes/Supprimer',['as'=>'Scolarite.Groupes.Supprimer', 'uses' => function(){
 	return view('administration.scolarite.groupesSupprimer');
+}]);
+
+/* INSCRIPTION */
+
+Route::get('/Inscription',['as'=>'Inscription', 'uses' => function(){
+	return view('administration.inscription.cantine');
+}]);
+
+Route::get('/Inscription/Cantine',['as'=>'Inscription.Cantine', 'uses' => function(){
+	return view('administration.inscription.cantine');
+}]);
+
+Route::get('/Inscription/TAP',['as'=>'Inscription.TAP', 'uses' => function(){
+	return view('administration.inscription.tap');
+}]);
+
+Route::get('/Inscription/TAP',['as'=>'Inscription.TAP', 'uses' => function(){
+	return view('administration.inscription.tap');
 }]);
 
 //Route::get('home', 'HomeController@index');

@@ -1,4 +1,4 @@
-@extends('administration.Scolarite.template')
+@extends('administration.scolarite.template')
 
 @section('content2')
 
@@ -18,9 +18,9 @@
 
 
             {!! Form::model(['class' => 'form-inline', 'url' => 'foo/bar']) !!}
-            <div class="col-md-8 col-md-offset-2">{!! Form::text('nom', null, ['class' => "form-control", 'placeholder' => "Nom du groupe", "style" => "text-align:center"]) !!}</div>
+            <div class="col-md-8 col-md-offset-2 margin-top-10">{!! Form::text('nom', null, ['class' => "form-control", 'placeholder' => "Nom du groupe", "style" => "text-align:center"]) !!}</div>
 
-            <table class="table table-striped">
+            <table class="table table-striped margin-top-10">
                 <thead>
                 <tr><th>Nom</th><th>Prenom</th></tr>
                 </thead>
@@ -28,7 +28,7 @@
                 <tr><td>Jean</td><td>Jacques</td></tr>
             </table>
 
-            <div class="col-md-7 col-sm-5 col-md-offset-1">
+            <div class="col-md-7 col-sm-5 col-xs-6 col-md-offset-1">
                 {!! Form::select('eleve',
                 [
                 "Jean" => 'Jean',
@@ -40,7 +40,7 @@
                 null, ['class' => 'form-control']) !!}
             </div>
 
-            <div class="col-md-3 col-sm-5 col-md-offset-1">
+            <div class="col-md-3 col-sm-5 col-xs-5 col-md-offset-1">
                 {!! Form::submit('Ajouter', ['class' => 'btn btn-primary form-control'])!!}
             </div>
 

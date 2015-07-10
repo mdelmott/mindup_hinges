@@ -12,7 +12,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="btn-group btn-group-justified" role="group" aria-label="BoutonAccueil">
 					<a href="{{ route("Scolarite") }}" class="btn btn-default" role="button">Scolarité</a>
-					<a href="#" class="btn btn-default" role="button">Inscription</a>
+					<a href="{{ route("Inscription") }}" class="btn btn-default" role="button">Inscription</a>
 					<a href="#" class="btn btn-default" role="button">Prévision</a>
 				</div>
 				<hr>
