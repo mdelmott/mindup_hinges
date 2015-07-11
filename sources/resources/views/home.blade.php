@@ -13,13 +13,13 @@
 				<div class="btn-group btn-group-justified" role="group" aria-label="BoutonAccueil">
 					<a href="{{ route("Scolarite") }}" class="btn btn-default" role="button">Scolarité</a>
 					<a href="{{ route("Inscription") }}" class="btn btn-default" role="button">Inscription</a>
-					<a href="#" class="btn btn-default" role="button">Prévision</a>
+					<a href="{{ route("Prevision")}}" class="btn btn-default" role="button">Prévision</a>
 				</div>
 				<hr>
 				<div class="btn-group btn-group-justified" role="group" aria-label="BoutonAccueil">
-					<a href="#" class="btn btn-default" role="button">Facturation</a>
-					<a href="#" class="btn btn-default" role="button">Tarifs</a>
-					<a href="#" class="btn btn-default" role="button">Comptes</a>
+					<a href="{{ route("Facturation")}}" class="btn btn-default" role="button">Facturation</a>
+					<a href="{{ route("Tarifs")}}" class="btn btn-default" role="button">Tarifs</a>
+					<a href="{{ route("Comptes")}}" class="btn btn-default" role="button">Comptes</a>
 				</div>
 			</div>
 			<div class="clearfix"></div>

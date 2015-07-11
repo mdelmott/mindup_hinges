@@ -16,7 +16,7 @@
 
 
     <div class="row margin-top-50">
-        <div class="col-md-4 col-sm-5 col-md-offset-1 margin-top-20">
+        <div class="col-md-4 col-sm-4 col-xs-10 col-xs-offset-1 col-md-offset-1 margin-top-20">
             <div class="span5 col-md-5 col-md-offset-4" id="sandbox-container"><div></div></div>
 
             <script>
@@ -24,10 +24,10 @@
             </script>
         </div>
 
-        <div class="col-md-6 col-sm-7 col-md-offset-1 margin-top-10">
+        <div class="col-md-6 col-sm-8 col-xs-10 col-xs-offset-1 col-md-offset-1 margin-top-10">
             {!! Form::model(['url' => 'foo/bar']) !!}
 
-            <div class="col-md-7 col-sm-5 col-xs-6 col-md-offset-1">
+            <div class="col-md-8 col-sm-6 col-xs-11 col-md-offset-2 col-sm-offset-3">
                 {!! Form::select('eleve',
                 [
                 "Jean" => 'Jean',
@@ -40,10 +40,10 @@
             </div>
             <div class="clearfix"></div>
 
-            <div class="col-md-7 col-sm-5 col-xs-5 col-md-offset-1 margin-top-15">
-                {!! Form::submit('Ajouter une scéance', ['action'=>'ajouterSceance', 'class' => 'btn btn-primary col-md-7 '])!!}
+            <div class="col-md-8 col-sm-8 col-xs-11 col-md-offset-2 col-sm-offset-2 margin-top-15">
+                {!! Form::submit('Ajouter une scéance', ['action'=>'ajouterSceance', 'class' => 'btn btn-primary col-md-12 col-sm-12 col-xs-12'])!!}
 
-                {!! Form::submit('Supprimer un scéance', ['action'=>'SupprimerSceance', 'class' => 'btn btn-primary col-md-7 margin-top-15'])!!}
+                {!! Form::submit('Supprimer un scéance', ['action'=>'SupprimerSceance', 'class' => 'btn btn-primary col-md-12 col-sm-12 col-xs-12 margin-top-15'])!!}
             </div>
 
 
