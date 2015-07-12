@@ -16,7 +16,7 @@
                     <div class="col-md-4 col-sm-7 col-xs-8 col-md-offset-1 ">
                         <div class="btn-group btn-group-justified" role="group" aria-label="Buttonbar">
                             <a href="{{ route("Facturation.Cantine") }}" class="btn btn-default {{ $cantine }}" role="button">Cantine</a>
-<a href="{{ route("Facturation.Garderie") }}" class="btn btn-default {{ $garderie}}" role="button">Garderie</a>
+                            <a href="{{ route("Facturation.Garderie") }}" class="btn btn-default {{ $garderie}}" role="button">Garderie</a>
                             <a href="{{ route("Facturation.TAP") }}" class="btn btn-default {{ $tap }}" role="button">TAP</a>
                         </div>
                     </div>

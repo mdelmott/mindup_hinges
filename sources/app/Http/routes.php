@@ -102,6 +102,34 @@ Route::get('/Comptes/Autres',['as'=>'Comptes.Autres', 'uses' => function(){
 	return view('administration.comptes.autres');
 }]);
 
+/* Cantines */
+Route::get('/Cantine',['as'=>'Cantine', 'uses' => function(){
+	return view('cantine');
+}]);
+
+/* TAP */
+Route::get('/TAP',['as'=>'TAP', 'uses' => function(){
+	return view('tap');
+}]);
+
+/* Garderie */
+Route::get('/Garderie',['as'=>'Garderie', 'uses' => function(){
+	return view('garderie.matin');
+}]);
+
+Route::get('/Garderie/Matin',['as'=>'Garderie.Matin', 'uses' => function(){
+	return view('garderie.matin');
+}]);
+
+Route::get('/Garderie/ApresMidi',['as'=>'Garderie.ApresMidi', 'uses' => function(){
+	return view('garderie.apresmidi');
+}]);
+
+/* Enseignants */
+
+Route::get('/Enseignants',['as'=>'Enseignants', 'uses' => function(){
+	return view('enseignants');
+}]);
 
 //Route::get('home', 'HomeController@index');
 
