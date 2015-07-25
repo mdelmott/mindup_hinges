@@ -114,17 +114,11 @@ Route::get('/TAP',['as'=>'TAP', 'uses' => function(){
 }, 'middleware' => 'auth']);
 
 /* Garderie */
-Route::get('/Garderie',['as'=>'Garderie', 'uses' => function(){
-	return view('garderie.matin');
-}, 'middleware' => 'auth']);
+Route::get('/Garderie',['as'=>'Garderie', 'uses' => "GarderieController@matin", 'middleware' => 'auth']);
 
-Route::get('/Garderie/Matin',['as'=>'Garderie.Matin', 'uses' => function(){
-	return view('garderie.matin');
-}, 'middleware' => 'auth']);
+Route::get('/Garderie/Matin',['as'=>'Garderie.Matin', 'uses' => 'GarderieController@matin', 'middleware' => 'auth']);
 
-Route::get('/Garderie/ApresMidi',['as'=>'Garderie.ApresMidi', 'uses' => function(){
-	return view('garderie.apresmidi');
-}, 'middleware' => 'auth']);
+Route::get('/Garderie/ApresMidi',['as'=>'Garderie.ApresMidi', 'uses' => "GarderieController@apresmidi", 'middleware' => 'auth']);
 
 /* Enseignants */
 
@@ -134,6 +128,11 @@ Route::get('/Enseignants',['as'=>'Enseignants', 'uses' => function(){
 
 Route::get('home', ['uses'=>'HomeController@index', 'middleware' => 'auth']);
 
+/** AJAX **/
+Route::get('/ChargementEleve',['as' => 'AjaxChargementProfil', 'uses' => 'GarderieController@chargementProfil']);
+Route::get('/AjoutHoraire',['as' => 'AjaxAjoutHoraire', 'uses' => 'GarderieController@ajoutHoraire']);
+
+/** Connexion **/
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
