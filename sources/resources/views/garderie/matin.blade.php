@@ -2,12 +2,9 @@
 
 @section('head')
     <script src="{{ asset('/js/bower_components/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ asset('/js/bower_components/bootstrap/js/tooltip.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-
-            //Activation des boutons (deviennent bleu) et modification de la value (0 ou 1)
-
-
             ChargementEleve();
 
             $('select[name="gar_group"]').change(function(){
@@ -32,7 +29,7 @@
                         valeurAp8 = data[i].matin2 ? 1 : 0;
 
                         html += "<tr>";
-                        html += "<td><span class=\"glyphicon glyphicon-question-sign\" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
+                        html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques : " + data[i].nom + " " + data[i].prenom + " ' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
                         html += "<td>";
                         html += "<div class=\"col-md-5 col-sm-5\">";
                         html += '<button type="button" class="button form-control btn-xs '+ EtatAv8 +'" value="'+ valeurAv8 +'" nom="'+data[i].nom+'" prenom="'+data[i].prenom+'">Avant 8h15</button>';
@@ -73,6 +70,8 @@
                             }
                         });
                     });
+
+                    $('.remarque').popover();
                 }
             });
         }
@@ -97,9 +96,6 @@
 
                     <table class="table table-striped margin-top-15"></table>
 
-                    <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-4">
-                        {!! Form::submit('Enregistrer', ['class' => 'button form-control btn-primary']) !!}
-                    </div>
                     {!! Form::close() !!}
                 </div>
                 <div class="clearfix"></div>

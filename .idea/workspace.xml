@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="018c8167-1fb5-440c-8b57-a0cf0dbf9dfa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sources/app/Http/Controllers/ConnexionController.php" afterPath="$PROJECT_DIR$/sources/app/Http/Controllers/ConnexionController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php" afterPath="$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php" afterPath="$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sources/app/Http/routes.php" afterPath="$PROJECT_DIR$/sources/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mindup_hinges.iws" />
@@ -34,7 +32,7 @@
       <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sources/resources/views/app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="1095">
+            <state vertical-scroll-proportion="-36.875" vertical-offset="0" max-vertical-offset="1095">
               <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding />
             </state>
@@ -63,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GarderieController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GarderieController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47933885" vertical-offset="1150" max-vertical-offset="2850">
-              <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
+            <state vertical-scroll-proportion="-15.208333" vertical-offset="190" max-vertical-offset="2850">
+              <caret line="43" column="47" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -76,22 +74,22 @@
       <file leaf-file-name="matin.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5" vertical-offset="120" max-vertical-offset="1740">
-              <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+            <state vertical-scroll-proportion="-5.7083335" vertical-offset="643" max-vertical-offset="1680">
+              <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
               <folding>
-                <marker date="1437843562000" expanded="true" signature="1699:1734" placeholder="..." />
-                <marker date="1437843562000" expanded="true" signature="2085:2258" placeholder="..." />
-                <marker date="1437843562000" expanded="true" signature="2113:2226" placeholder="..." />
+                <marker date="1437860187000" expanded="true" signature="1886:1921" placeholder="..." />
+                <marker date="1437860187000" expanded="true" signature="2272:2445" placeholder="..." />
+                <marker date="1437860187000" expanded="true" signature="2300:2413" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apresmidi.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="apresmidi.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.083334" vertical-offset="670" max-vertical-offset="1920">
-              <caret line="72" column="42" selection-start-line="72" selection-start-column="42" selection-end-line="72" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.6543779" vertical-offset="1269" max-vertical-offset="1920">
+              <caret line="113" column="65" selection-start-line="113" selection-start-column="65" selection-end-line="113" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -100,7 +98,7 @@
       <file leaf-file-name="template.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/template.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.4583335" vertical-offset="145" max-vertical-offset="750">
+            <state vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="750">
               <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding />
             </state>
@@ -173,9 +171,9 @@
         <option value="$PROJECT_DIR$/sources/app/Http/Controllers/ConnexionController.php" />
         <option value="$PROJECT_DIR$/sources/resources/views/garderie/template.blade.php" />
         <option value="$PROJECT_DIR$/sources/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php" />
         <option value="$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php" />
         <option value="$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php" />
-        <option value="$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php" />
       </list>
     </option>
   </component>
@@ -409,9 +407,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299389" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19285715" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28265306" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3102041" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32959184" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959184" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -735,14 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sources/resources/views/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="1095">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sources/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="763">
@@ -784,14 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/template.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4583335" vertical-offset="145" max-vertical-offset="750">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sources/resources/views/auth/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="375">
@@ -800,30 +782,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.208333" vertical-offset="190" max-vertical-offset="2850">
+          <caret line="43" column="47" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sources/resources/views/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-36.875" vertical-offset="0" max-vertical-offset="1095">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/template.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="750">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5" vertical-offset="120" max-vertical-offset="1740">
-          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+        <state vertical-scroll-proportion="-5.7083335" vertical-offset="643" max-vertical-offset="1680">
+          <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
           <folding>
-            <marker date="1437843562000" expanded="true" signature="1699:1734" placeholder="..." />
-            <marker date="1437843562000" expanded="true" signature="2085:2258" placeholder="..." />
-            <marker date="1437843562000" expanded="true" signature="2113:2226" placeholder="..." />
+            <marker date="1437860187000" expanded="true" signature="1886:1921" placeholder="..." />
+            <marker date="1437860187000" expanded="true" signature="2272:2445" placeholder="..." />
+            <marker date="1437860187000" expanded="true" signature="2300:2413" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.083334" vertical-offset="670" max-vertical-offset="1920">
-          <caret line="72" column="42" selection-start-line="72" selection-start-column="42" selection-end-line="72" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47933885" vertical-offset="1150" max-vertical-offset="2850">
-          <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.6543779" vertical-offset="1269" max-vertical-offset="1920">
+          <caret line="113" column="65" selection-start-line="113" selection-start-column="65" selection-end-line="113" selection-end-column="65" />
           <folding />
         </state>
       </provider>

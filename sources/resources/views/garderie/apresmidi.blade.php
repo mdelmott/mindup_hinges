@@ -2,6 +2,7 @@
 
 @section('head')
     <script src="{{ asset('/js/bower_components/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ asset('/js/bower_components/bootstrap/js/tooltip.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             ChargementEleve();
@@ -32,7 +33,7 @@
                         valeur3h = data[i].duree_soir == 3 ? 3 : 0;
 
                         html += "<tr>";
-                            html += "<td><span class=\"glyphicon glyphicon-question-sign\" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
+                            html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques : " + data[i].nom + " " + data[i].prenom + " ' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
                             html += "<td>";
                                 html += "<div class=\"col-md-4 col-sm-4\">";
                                 html += '<button type="button" class="button form-control btn-xs '+ Etat1h +'" value="'+ valeur1h +'" nom="'+data[i].nom+'" prenom="'+data[i].prenom+'">1h</button>';
@@ -87,6 +88,8 @@
                             }
                         });
                     });
+
+                    $('.remarque').popover();
                 }
             });
         }
@@ -109,9 +112,6 @@
             {!! Form::select('gar_group', $garderies, null, ['class' => 'form-control']) !!}
         </div>
         <table class="table table-striped margin-top-15"></table>
-        <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-4">
-            {!! Form::submit('Enregistrer', ['class' => 'button form-control btn-primary']) !!}
-        </div>
         {!! Form::close() !!}
     </div>
     <div class="clearfix"></div>
