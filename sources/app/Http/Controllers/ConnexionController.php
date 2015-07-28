@@ -21,7 +21,7 @@ class ConnexionController extends Controller {
 		if(Auth::attempt(['login'=>$login, 'password'=>$password])){
 			return redirect('home');
 		}else
-			echo "pas ok";
+			return redirect('auth.login');
 	}
 	/**
 	 * Display a listing of the resource.
