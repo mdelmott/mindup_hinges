@@ -90,10 +90,9 @@ Route::get('/Facturation/TAP',['as'=>'Facturation.TAP', 'uses' => function(){
 
 /* TARIFS */
 
-Route::get('/Tarifs',['as'=>'Tarifs', 'uses' => function(){
-	return view('administration.tarifs');
-}, 'middleware' => 'auth']);
-
+Route::get('/Tarifs',['as'=>'Tarifs', 'uses' => 'TarifController@index'/*, 'middleware' => 'auth'*/]);
+Route::post('/Tarifs/Update',['as'=>'Tarifs.Update', 'uses'=>'TarifController@update'/*, 'middleware' => 'auth'*/]);
+	
 
 /* Comptes */
 

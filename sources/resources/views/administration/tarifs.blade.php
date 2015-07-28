@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="margin-top-50">
-                    {!! Form::model(['url' => 'foo/bar']) !!}
+                    {!! Form::open(['url' => '/Tarifs/Update']) !!}
                         <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
                             <table class="table table-striped margin-top-15">
                                 <thead>
@@ -24,19 +24,19 @@
                                     </tr>
                                 </thead>
                                 <tr>
-                                    <td>Matin</td><td>Avant 8h15</td><td>{!! Form::text("Garderieav8h15", null,["class"=>"form-control"]) !!}</td>
+                                    <td>Matin</td><td>Avant 8h15</td><td>{!! Form::text("Garderieav8h15", $Garderieav8h15,["class"=>"form-control"]) !!}</td>
                                 </tr>
                                 <tr>
-                                    <td></td><td>Après 8h15</td><td>{!! Form::text("Garderieap8h15", null,["class"=>"form-control"]) !!}</td>
+                                    <td></td><td>Après 8h15</td><td>{!! Form::text("Garderieap8h15", $Garderieap8h15,["class"=>"form-control"]) !!}</td>
                                 </tr>
                                 <tr>
-                                    <td>Après Midi</td><td>1 heure</td><td>{!! Form::text("Garderie1h", null,["class"=>"form-control"]) !!}</td>
+                                    <td>Après Midi</td><td>1 heure</td><td>{!! Form::text("Garderie1h", $Garderie1h,["class"=>"form-control"]) !!}</td>
                                 </tr>
                                 <tr>
-                                    <td></td><td>2 heures</td><td>{!! Form::text("Garderie2h", null,["class"=>"form-control"]) !!}</td>
+                                    <td></td><td>2 heures</td><td>{!! Form::text("Garderie2h", $Garderie2h,["class"=>"form-control"]) !!}</td>
                                 </tr>
                                 <tr>
-                                    <td></td><td>3 heures</td><td>{!! Form::text("Garderie3h", null,["class"=>"form-control"]) !!}</td>
+                                    <td></td><td>3 heures</td><td>{!! Form::text("Garderie3h", $Garderie3h,["class"=>"form-control"]) !!}</td>
                                 </tr>
                             </table>
                         </div>
@@ -50,13 +50,13 @@
                                 </thead>
                                 <tr>
                                     <td>Hingeois</td>
-                                    <td>{!! Form::text("TAPhingeoisPres", null,["class"=>"form-control"]) !!}</td>
-                                    <td>{!! Form::text("TAPhingeoisAbs", null,["class"=>"form-control"]) !!}</td>
+                                    <td>{!! Form::text("TAPhingeoisPres", $TAPhingeoisPres,["class"=>"form-control"]) !!}</td>
+                                    <td>{!! Form::text("TAPhingeoisAbs", $TAPhingeoisAbs,["class"=>"form-control"]) !!}</td>
                                 </tr>
                                 <tr>
                                     <td>Extérieur</td>
-                                    <td>{!! Form::text("TAPextPres", null,["class"=>"form-control"]) !!}</td>
-                                    <td>{!! Form::text("TAPextAbs", null,["class"=>"form-control"]) !!}</td>
+                                    <td>{!! Form::text("TAPextPres", $TAPextPres,["class"=>"form-control"]) !!}</td>
+                                    <td>{!! Form::text("TAPextAbs", $TAPextAbs,["class"=>"form-control"]) !!}</td>
                                 </tr>
                             </table>
                         </div>
@@ -69,10 +69,10 @@
                                     </tr>
                                 </thead>
                                 <tr>
-                                    <td>Standard</td><td>{!! Form::text("Garderieav8h15", null,["class"=>"form-control"]) !!}</td>
+                                    <td>Standard</td><td>{!! Form::text("RepasStd", $RepasStd,["class"=>"form-control"]) !!}</td>
                                 </tr>
                                 <tr>
-                                    <td>Hors délai</td><td>{!! Form::text("Garderieav8h15", null,["class"=>"form-control"]) !!}</td>
+                                    <td>Hors délai</td><td>{!! Form::text("RepasHD", $RepasHD,["class"=>"form-control"]) !!}</td>
                                 </tr>
                             </table>
                         </div>
