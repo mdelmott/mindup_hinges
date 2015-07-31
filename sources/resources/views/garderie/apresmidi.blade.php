@@ -20,32 +20,27 @@
                 success: function(data){
                     html = "";
 
-
-                    for(i=0; i<data.length;i++){
-
-                        Etat1h = data[i].duree_soir == 1 ? "btn-primary" : "";
-                        valeur1h = data[i].duree_soir == 1 ? 1 : 0;
-
-                        Etat2h = data[i].duree_soir == 2 ? "btn-primary" : "";
-                        valeur2h = data[i].duree_soir == 2 ? 2 : 0;
-
-                        Etat3h = data[i].duree_soir == 3 ? "btn-primary" : "";
-                        valeur3h = data[i].duree_soir == 3 ? 3 : 0;
-
-                        html += "<tr>";
+                    console.log(data.length);
+                    if(data.length > 0){
+                        for(i=0; i<data.length;i++){
+                            html += "<tr>";
                             html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques : " + data[i].nom + " " + data[i].prenom + " ' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
                             html += "<td>";
-                                html += "<div class=\"col-md-4 col-sm-4\">";
-                                html += '<button type="button" class="button form-control btn-xs '+ Etat1h +'" value="'+ valeur1h +'" nom="'+data[i].nom+'" prenom="'+data[i].prenom+'">1h</button>';
-                                html += "</div>";
-                                html += "<div class=\"col-md-4 col-sm-4\">";
-                                html += '<button type="button" class="button form-control btn-xs '+ Etat2h +'" value="'+ valeur2h +'" nom="'+data[i].nom+'" prenom="'+data[i].prenom+'">2h</button>';
-                                html += "</div>";
-                                html += "<div class=\"col-md-4 col-sm-4\">";
-                                html += '<button type="button" class="button form-control btn-xs '+ Etat3h +'" value="'+ valeur3h +'" nom="'+data[i].nom+'" prenom="'+data[i].prenom+'">3h</button>';
-                                html += "</div>";
+                            html += "<div class=\"col-md-4 col-sm-4\">";
+                            html += '<button type="button" class="button form-control btn-xs " nom="'+data[i].nom+'"  ville="'+data[i].ville+'"  prenom="'+data[i].prenom+'">1h</button>';
+                            html += "</div>";
+                            html += "<div class=\"col-md-4 col-sm-4\">";
+                            html += '<button type="button" class="button form-control btn-xs " nom="'+data[i].nom+'"  ville="'+data[i].ville+'"  prenom="'+data[i].prenom+'">2h</button>';
+                            html += "</div>";
+                            html += "<div class=\"col-md-4 col-sm-4\">";
+                            html += '<button type="button" class="button form-control btn-xs " nom="'+data[i].nom+'"  ville="'+data[i].ville+'"  prenom="'+data[i].prenom+'">3h</button>';
+                            html += "</div>";
                             html += "</td>";
-                        html += "</tr>";
+                            html += "</tr>";
+                        }
+                    }
+                    else{
+                        html = "<td colspan=4><h3 class='text-center'>Aucun élève à pointer</h3></td>"
                     }
 
                     html = " <thead>"+
@@ -83,7 +78,6 @@
                             data: { valeur : $(this).val(), groupe: $('select[name="gar_group"]').val(), horaire: $(this).text(), nom: $(this).attr('nom'), prenom: $(this).attr('prenom') },
                             url: '{{ route("AjaxAjoutHoraire") }}',
                             success: function(data) {
-                                console.log(data);
                                 alert('Enfant Pointé !');
                             }
                         });

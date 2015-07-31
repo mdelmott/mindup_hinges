@@ -20,25 +20,24 @@
                 success: function(data){
 
                     html = "";
-                    for(i=0; i<data.length;i++){
+                    if(data.length > 0){
+                        for(i=0; i<data.length;i++){
 
-                        EtatAv8 = data[i].matin1 ? "btn-primary" : "";
-                        valeurAv8 = data[i].matin1 ? 1 : 0;
-
-                        EtatAp8 = data[i].matin2 ? "btn-primary" : "";
-                        valeurAp8 = data[i].matin2 ? 1 : 0;
-
-                        html += "<tr>";
-                        html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques : " + data[i].nom + " " + data[i].prenom + " ' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
-                        html += "<td>";
-                        html += "<div class=\"col-md-5 col-sm-5\">";
-                        html += '<button type="button" class="button form-control btn-xs '+ EtatAv8 +'" value="'+ valeurAv8 +'" nom="'+data[i].nom+'" prenom="'+data[i].prenom+'">Avant 8h15</button>';
-                        html += "</div>";
-                        html += "<div class=\"col-md-5 col-sm-5\">";
-                        html += '<button type="button" class="button form-control btn-xs '+ EtatAp8 +'" value="'+ valeurAp8 +'" nom="'+data[i].nom+'" prenom="'+data[i].prenom+'">Après 8h15</button>';
-                        html += "</div>";
-                        html += "</td>";
-                        html += "</tr>";
+                            html += "<tr>";
+                            html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques : " + data[i].nom + " " + data[i].prenom + " ' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
+                            html += "<td>";
+                            html += "<div class=\"col-md-5 col-sm-5\">";
+                            html += '<button type="button" class="button form-control btn-xs" nom="'+data[i].nom+'" ville="'+data[i].ville+'" prenom="'+data[i].prenom+'">Avant 8h15</button>';
+                            html += "</div>";
+                            html += "<div class=\"col-md-5 col-sm-5\">";
+                            html += '<button type="button" class="button form-control btn-xs" nom="'+data[i].nom+'" ville="'+data[i].ville+'" prenom="'+data[i].prenom+'">Après 8h15</button>';
+                            html += "</div>";
+                            html += "</td>";
+                            html += "</tr>";
+                        }
+                    }
+                    else{
+                        html = "<td colspan=4><h3 class='text-center'>Aucun élève à pointer</h3></td>"
                     }
 
                     html = " <thead>"+
