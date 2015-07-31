@@ -10,41 +10,37 @@
             </div>
 
             <div class="btn-group btn-group-justified margin-top-10" role="group" aria-label="modifer / Supprimer un groupe">
-                <a href="{{ route("Scolarite.Groupes.Supprimer") }}" class="btn btn-default" role="button">Modifier/Supprimer un groupe</a>
+                <a href="{{ route("Scolarite.Groupes.ModifierOuSupprimer") }}" class="btn btn-default" role="button">Modifier/Supprimer un groupe</a>
             </div>
         </div>
 
         <div class="col-md-6 col-sm-7 col-md-offset-1">
 
 
-            {!! Form::model(['class' => 'form-inline', 'url' => 'foo/bar']) !!}
-            <div class="col-md-8 col-md-offset-2 margin-top-10">{!! Form::text('nom', null, ['class' => "form-control", 'placeholder' => "Nom du groupe", "style" => "text-align:center"]) !!}</div>
+            {!! Form::open(['url' => '/Scolarite/Groupes/Create']) !!}
+            <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-1">
+                {!! Form::text('nom', $nom, ['class' => "form-control", 'placeholder' => "Nom du groupe"]) !!}
+            </div>
+            <div class="col-md-4 col-sm-5 col-xs-6 col-md-offset-1">
+                {!! Form::select('type', ["TAP","GARDERIE"], $type, ['class' => 'form-control']) !!}
+            </div>
 
             <table class="table table-striped margin-top-10">
                 <thead>
                 <tr><th>Nom</th><th>Prenom</th></tr>
                 </thead>
-                <tr><td>Jean</td><td>Paul</td></tr>
-                <tr><td>Jean</td><td>Jacques</td></tr>
+                {!! HTML::showTable($groupe,'Groupes') !!}
             </table>
 
             <div class="col-md-7 col-sm-5 col-xs-6 col-md-offset-1">
-                {!! Form::select('eleve',
-                [
-                "Jean" => 'Jean',
-                'Jean Pierre' => 'Jean Pierre',
-                'Jean Jacques' => 'Jean Jacques',
-                'Jean Paul' => 'Jean Paul',
-                'Jean François' => 'Jean François'
-                ],
-                null, ['class' => 'form-control']) !!}
+                {!! Form::select('eleve', $eleves, null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="col-md-3 col-sm-5 col-xs-5 col-md-offset-1">
-                {!! Form::submit('Ajouter', ['class' => 'btn btn-primary form-control'])!!}
+                {!! Form::submit('Ajouter', ['name' => 'action', 'class' => 'btn btn-primary form-control'])!!}
             </div>
 
-            {!! Form::submit('Enregistrer', ['action'=>'enregistrerGroupe', 'class' => 'btn btn-primary form-control margin-top-20'])!!}
+            {!! Form::submit('Enregistrer', ['name' => 'action', 'class' => 'btn btn-primary form-control margin-top-20'])!!}
 
             {!! Form::close() !!}
         </div>
