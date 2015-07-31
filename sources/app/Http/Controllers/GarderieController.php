@@ -64,40 +64,36 @@ class GarderieController extends Controller {
 		$nom = $_GET['nom'];
 		$prenom = $_GET['prenom'];
 		$valeur = $_GET["valeur"];
-		$ville = $_GET["ville"];
 
 		$id = DB::table("profil")->select("id")->where("nom", "=", $nom)->where("prenom", "=", $prenom)->get();
 		$id = $id[0]->id;
 
 		$nomtarif = "";
+
 		switch($horaire){
 			case "Avant 8h15":
 				$horaire = "matin1";
-				$nomtarif = "matin1ext";
+				$nomtarif = "Garderieav8h15";
 				break;
 			case "Après 8h15":
 				$horaire = "matin2";
-				$nomtarif = "matin2ext";
+				$nomtarif = "Garderieap8h15";
 				break;
 			case "1h":
 				$horaire = "duree_soir";
-				$nomtarif = "1hext";
+				$nomtarif = "Garderie1h";
 				break;
 			case "2h":
 				$horaire = "duree_soir";
-				$nomtarif = "2hext";
+				$nomtarif = "Garderie2h";
 				break;
 			case "3h":
 				$horaire = "duree_soir";
-				$nomtarif = "3hext";
+				$nomtarif = "Garderie3h";
 				break;
 		}
 
-		if($ville == "Hinges") {
-			$prix = DB::table("tarifs")->select("id")->where("nom", "=", $nomtarif)->get();
-		}else{
-			$prix = DB::table("tarifs")->select("id")->where("nom", "=", $nomtarif)->get();
-		}
+		$prix = DB::table("tarifs")->select("id")->where("nom", "=", $nomtarif)->get();
 
 		$prix = $prix["0"]->id;
 
