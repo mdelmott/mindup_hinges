@@ -15,7 +15,7 @@ class GarderieController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function matin()
+	public function index()
 	{
 		DB::setFetchMode(PDO::FETCH_ASSOC);
 		$group_gar = DB::table("groupe")->select("*")
@@ -24,51 +24,38 @@ class GarderieController extends Controller {
 
 		DB::setFetchMode(PDO::FETCH_CLASS);
 
-		return view('garderie.matin', compact('group_gar'));
-	}
 
-	public function apresmidi()
-	{
-		DB::setFetchMode(PDO::FETCH_ASSOC);
-		$group_gar = DB::table("groupe")->select("*")
-			->where("type","=","garderie")
-			->get();
-
-		DB::setFetchMode(PDO::FETCH_CLASS);
-
-		return view('garderie.apresmidi', compact('group_gar'));
+		if(Carbon::now()->format("H") + 2 < 12){
+			return view('garderie.matin', compact('group_gar'));
+		}else{
+			return view('garderie.apresmidi', compact('group_gar'));
+		}
 	}
 
 	public function chargementProfil(){
 		if(isset($_GET['groupe'])){
 			DB::setFetchMode(PDO::FETCH_ASSOC);
-			$garderie_profil = DB::table("groupe_profil")->select("*")
-				->join("profil", "groupe_profil.profil_id", "=" ,"profil.id")
-				->join("groupe", "groupe_profil.groupe_id", "=" ,"groupe.id")
-				->select("*", "groupe.nom as groupe_nom", "profil.nom as nom")
-				->where("groupe.nom", "=",$_GET['groupe'])
-				->get();
+			$select = DB::table("garderie")->select("id", "date")->where("date", "=", Carbon::now()->format("Y-m-d"))->get();
 
-			$garderie_profil2 = DB::table("gar_profil")->join("garderie", "gar_profil.id_gar","=","garderie.id")
-														->join("profil", "gar_profil.id_profil", "=" ,"profil.id")
-														->select("*", "id_profil as profil_id")
-														->where("garderie.date","=", Carbon::now()->format("Y-m-d"))
-														->get();
-
-			$g = array_merge($garderie_profil, $garderie_profil2);
-
-			$i=0;
-			foreach($g as $courrant){
-				foreach($g as $courrant2){
-					if($courrant["profil_id"] == $courrant2["profil_id"] && count(array_diff($courrant, $courrant2)) > 0 && $i<= count($g)/2){
-						unset($g[$i]);
-					}
-				}
-				$i++;
+			if(count($select) == 0){
+				DB::table("garderie")->insert(["date"=> Carbon::now()->format("Y-m-d")]);
 			}
 
-			$g = array_values($g);
-			return $g;
+			if(Carbon::now()->format("H") + 2 < 12){
+				$garderie_profil = DB::select("SELECT * FROM profil, adresse
+												WHERE profil.id not in (SELECT id_profil FROM gar_profil
+												WHERE id_gar IN (SELECT MAX(id) FROM garderie WHERE date = '".Carbon::now()->format("Y-m-d")."'))
+												AND profil.adresse_id = adresse.id");
+			}else{
+				$garderie_profil = DB::select("SELECT * FROM profil, adresse
+												WHERE (profil.id in (SELECT id_profil FROM gar_profil WHERE duree_soir IS NULL AND id_gar IN (SELECT MAX(id) FROM garderie WHERE date = '".Carbon::now()->format("Y-m-d")."'))
+												OR profil.id NOT IN (SELECT id_profil FROM gar_profil WHERE id_gar IN (SELECT MAX(id) FROM garderie WHERE date = '".Carbon::now()->format("Y-m-d")."')))
+												AND profil.adresse_id = adresse.id");
+			}
+
+			DB::setFetchMode(PDO::FETCH_CLASS);
+
+			return array_values($garderie_profil);
 		}
 	}
 
@@ -77,37 +64,57 @@ class GarderieController extends Controller {
 		$nom = $_GET['nom'];
 		$prenom = $_GET['prenom'];
 		$valeur = $_GET["valeur"];
+		$ville = $_GET["ville"];
 
 		$id = DB::table("profil")->select("id")->where("nom", "=", $nom)->where("prenom", "=", $prenom)->get();
 		$id = $id[0]->id;
 
+		$nomtarif = "";
 		switch($horaire){
 			case "Avant 8h15":
 				$horaire = "matin1";
+				$nomtarif = "matin1ext";
 				break;
 			case "Après 8h15":
 				$horaire = "matin2";
+				$nomtarif = "matin2ext";
 				break;
 			case "1h":
 				$horaire = "duree_soir";
+				$nomtarif = "1hext";
 				break;
 			case "2h":
 				$horaire = "duree_soir";
+				$nomtarif = "2hext";
 				break;
 			case "3h":
 				$horaire = "duree_soir";
+				$nomtarif = "3hext";
 				break;
 		}
 
+		if($ville == "Hinges") {
+			$prix = DB::table("tarifs")->select("id")->where("nom", "=", $nomtarif)->get();
+		}else{
+			$prix = DB::table("tarifs")->select("id")->where("nom", "=", $nomtarif)->get();
+		}
+
+		$prix = $prix["0"]->id;
+
+
 		if($valeur == 0){
 			$valeur = null;
+		}
+
+		if($prix == 0){
+			$prix = null;
 		}
 
 
 		$select = DB::table("garderie")->select("id", "date")->where("date", "=", Carbon::now()->format("Y-m-d"))->get();
 
 		if(count($select) == 0){
-			DB::table("garderie")->insert(["date"=> Carbon::now()->format("Y-m-d")])->get();
+			DB::table("garderie")->insert(["date"=> Carbon::now()->format("Y-m-d")]);
 		}
 
 		$idDate = DB::table("garderie")->select("id")->where("date", "=", Carbon::now()->format("Y-m-d"))->get();
@@ -115,10 +122,11 @@ class GarderieController extends Controller {
 
 		$existe = DB::table("gar_profil")->select("*")->where("id_profil", "=", $id)->where("id_gar", "=", $idDate[0]->id)->get();
 
+
 		if(count($existe)>0){
 			DB::table("gar_profil")->where("id_profil", "=", $id)->where("id_gar", "=", $idDate[0]->id)->update([$horaire=> $valeur]);
 		}else{
-			DB::table("gar_profil")->insert(["id_profil"=>$id, "id_gar"=> $idDate[0]->id, $horaire=> $valeur]);
+			DB::table("gar_profil")->insert(["id_profil"=>$id, "id_gar"=> $idDate[0]->id, $horaire=> $valeur, "prix" => $prix]);
 		}
 
 		return 1;

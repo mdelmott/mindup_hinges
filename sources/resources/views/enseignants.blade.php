@@ -8,21 +8,45 @@ use Carbon\Carbon;
     <script src="{{ asset('/js/bower_components/jquery/dist/jquery.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            ChargementEleve();
 
-            //Activation des boutons (deviennent bleu) et modification de la value (0 ou 1)
-            $('.button').click(function(){
-                test = $(this).attr('class').match(/btn-primary/g);
-
-
-                if( test == null){
-                    $(this).attr('class', $(this).attr('class') + " btn-primary" );
-                    $(this).val('1');
-                }else{
-                    $(this).attr('class', $(this).attr('class').replace('btn-primary', ''));
-                    $(this).val('0');
-                }
-            })
+            $('select[name="class_groupe"]').change(function(){
+                ChargementEleve();
+            });
         });
+
+        function ChargementEleve(){
+            $.ajax({
+                type:"get",
+                data: { classe: $('select[name="class_groupe"]').val() },
+                url: '{{ route("AjaxChargementProfilEnseignant") }}',
+                success: function(data){
+                    html = "";
+                    if(data.length > 0){
+                        for(i=0; i<data.length;i++){
+
+                            html += "<tr>";
+                            html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques : " + data[i].nom + " " + data[i].prenom + " ' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
+                            html += "</tr>";
+                        }
+                    }
+                    else{
+                        html = "<td colspan=4><h3 class='text-center'>Aucun élève</h3></td>"
+                    }
+
+                    html = " <thead>"+
+                    "<tr>"+
+                    "<th>Profils</th><th>Nom</th><th>Prenom</th>"+
+                    "</tr>"+
+                    "</thead>"+
+                    html;
+
+                    $("table.table").html(html);
+
+                    $('.remarque').popover();
+                }
+            });
+        }
     </script>
 @endsection
 
@@ -50,27 +74,18 @@ use Carbon\Carbon;
                 <div class="col-md-8 col-md-offset-2 margin-top-50">
                     {!! Form::model(['class' => 'form-inline', 'url' => 'foo/bar']) !!}
                     <div class="col-md-6 col-sm-5 col-xs-7 col-xs-offset-3 col-md-offset-3">
-                        {!! Form::select('eleve',
-                        [
-                        "M. Dupont" => "M. Dupont",
-                        "Mme. Dupont" => "Mme. Dupont",
-                        ],
-                        null, ['class' => 'form-control']) !!}
+                        <?php
+                        $classes = array();
+
+                        foreach($groupe_class as $classe){
+                            $classes[$classe['id']] = $classe['nom'];
+                        }
+                        ?>
+                        {!! Form::select('class_groupe', $classes, null, ['class' => 'form-control']) !!}
+
                     </div>
 
-                    <table class="table table-striped margin-top-15">
-                        <thead>
-                        <tr>
-                            <th>Profils</th><th>Nom</th><th>Prenom</th>
-                        </tr>
-                        </thead>
-                        <tr>
-                            <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> </td><td>Jean</td><td>Paul</td>
-                        </tr>
-                        <tr>
-                            <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> </td><td>Jean</td><td>Jacques</td>
-                        </tr>
-                    </table>
+                    <table class="table table-striped margin-top-15"></table>
                     {!! Form::close() !!}
                 </div>
                 <div class="clearfix"></div>
