@@ -30,7 +30,11 @@ class Tarif extends Model {
 	/* Creer un profil */
 	public static function getTarif($nom){
 		$tarif = DB::table("tarifs")->where(['nom'=>$nom])->get();
-		return number_format($tarif[0]->tarif,2);
+		if(count($tarif)>0){
+			return number_format($tarif[0]->tarif,2);
+		}else{
+			return null;
+		}
 	}
 
 	public static function updateTarif($nom,$tarif){

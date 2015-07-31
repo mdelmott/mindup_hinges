@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', ["as"=>"administration", "uses"=>'HomeController@index', 'middleware' => 'auth']);
+Route::get('/', ["as"=>"administration", "uses"=>'HomeController@index'/*, 'middleware' => 'auth'*/]);
 
 //Uniquement pour les tests de vue. On utilisera les controllers.
 
@@ -20,12 +20,12 @@ Route::get('/', ["as"=>"administration", "uses"=>'HomeController@index', 'middle
 
    	/* Profils */
    	
-   	Route::get('/Scolarite',['as'=>'Scolarite', 'uses'=>'ProfilController@index', 'middleware' => 'auth']);
-	Route::get('/Scolarite/Profils',['as'=>'Scolarite.Profils', 'uses' => 'ProfilController@index', 'middleware' => 'auth']);
-	Route::get('/Scolarite/Profils/ModifierOuSupprimer',['as'=>'Scolarite.Profils.ModifierOuSupprimer', 'uses' => 'ProfilController@show', 'middleware' => 'auth']);
+   	Route::get('/Scolarite',['as'=>'Scolarite', 'uses'=>'ProfilController@index'/*, 'middleware' => 'auth'*/]);
+	Route::get('/Scolarite/Profils',['as'=>'Scolarite.Profils', 'uses' => 'ProfilController@index'/*, 'middleware' => 'auth'*/]);
+	Route::get('/Scolarite/Profils/ModifierOuSupprimer',['as'=>'Scolarite.Profils.ModifierOuSupprimer', 'uses' => 'ProfilController@show'/*, 'middleware' => 'auth'*/]);
 
-	Route::post('/Scolarite/Profils/Create',['as'=>'Scolarite.Profils.Create', 'uses'=>'ProfilController@create', 'middleware' => 'auth']);
-	Route::post('/Scolarite/Profils/UpdateOrDelete',['as'=>'Scolarite.Profils.UpdateOrDelete', 'uses'=>'ProfilController@updateOrDelete', 'middleware' => 'auth']);
+	Route::post('/Scolarite/Profils/Create',['as'=>'Scolarite.Profils.Create', 'uses'=>'ProfilController@create'/*, 'middleware' => 'auth'*/]);
+	Route::post('/Scolarite/Profils/UpdateOrDelete',['as'=>'Scolarite.Profils.UpdateOrDelete', 'uses'=>'ProfilController@updateOrDelete'/*, 'middleware' => 'auth'*/]);
 
 	/* Classes */
 	
@@ -49,17 +49,13 @@ Route::get('/', ["as"=>"administration", "uses"=>'HomeController@index', 'middle
 
 /* INSCRIPTION */
 
-Route::get('/Inscription',['as'=>'Inscription', 'uses' => function(){
-	return view('administration.inscription.cantine');
-}, 'middleware' => 'auth']);
+Route::get('/Inscription',['as'=>'Inscription', 'uses' => 'InscriptionCantineController@index'/*, 'middleware' => 'auth'*/]);
 
-Route::get('/Inscription/Cantine',['as'=>'Inscription.Cantine', 'uses' => function(){
-	return view('administration.inscription.cantine');
-}, 'middleware' => 'auth']);
+Route::get('/Inscription/Cantine',['as'=>'Inscription.Cantine', 'uses' => 'InscriptionCantineController@index'/*, 'middleware' => 'auth'*/]);
+Route::post('/Inscription/Cantine/Create',['as'=>'Inscription.Cantine.Create', 'uses' => 'InscriptionCantineController@createOrDelete'/*, 'middleware' => 'auth'*/]);
 
-Route::get('/Inscription/TAP',['as'=>'Inscription.TAP', 'uses' => function(){
-	return view('administration.inscription.tap');
-}, 'middleware' => 'auth']);
+Route::get('/Inscription/TAP',['as'=>'Inscription.TAP', 'uses' => 'InscriptionTAPController@index'/*, 'middleware' => 'auth'*/]);
+Route::post('/Inscription/TAP/Create',['as'=>'Inscription.TAP.Create', 'uses' => 'InscriptionTAPController@createOrDelete'/*, 'middleware' => 'auth'*/]);
 
 
 /* PREVISION */
@@ -106,7 +102,7 @@ Route::get('/Comptes/Administration',['as'=>'Comptes.Administration', 'uses' => 
 
 Route::get('/Comptes/Autres',['as'=>'Comptes.Autres', 'uses' => function(){
 	return view('administration.comptes.autres');
-}, 'middleware' => 'auth']);
+}/*, 'middleware' => 'auth'*/]);
 
 
 /* Cantines */
