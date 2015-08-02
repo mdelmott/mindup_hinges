@@ -87,5 +87,35 @@ class Profil extends Model {
 		DB::table("groupe_profil")->where(['profil_id' => $id, 'groupe_id' => $groupe_id])->delete();
 	}
 
-	
+	public static function getRepas($id){
+		return DB::table("repas")->join('repas_profil', 'repas.id', '=', 'repas_profil.id_repas')->where('repas_profil.id_profil', $id)->get();
+	}
+
+	public static function addRepas($id,$repas_id,$hd,$prix){
+		$count = DB::table('repas_profil')->where(['id_profil' => $id, 'id_repas' => $repas_id])->count();
+		if($count == 0){
+			DB::table("repas_profil")->insert(['id_profil' => $id, 'id_repas' => $repas_id, 'hors_delai' => $hd, 'absent' => 0, 'prix' => $prix]);
+		}
+	}
+
+	public static function deleteRepas($id,$repas_id){
+		DB::table("repas_profil")->where(['id_profil' => $id, 'id_repas' => $repas_id])->delete();
+	}
+
+
+	public static function getTAP($id){
+		return DB::table("tap")->join('tap_profil', 'tap.id', '=', 'tap_profil.id_tap')->where('tap_profil.id_profil', $id)->get();
+	}
+
+	public static function addTAP($id,$tap_id,$prix){
+		$count = DB::table('tap_profil')->where(['id_profil' => $id, 'id_tap' => $tap_id])->count();
+		if($count == 0){
+			DB::table("tap_profil")->insert(['id_profil' => $id, 'id_tap' => $tap_id, 'absent' => 0, 'prix' => $prix]);
+		}
+	}
+
+	public static function deleteTAP($id,$tap_id){
+		DB::table("tap_profil")->where(['id_profil' => $id, 'id_tap' => $tap_id])->delete();
+	}
+
 }
