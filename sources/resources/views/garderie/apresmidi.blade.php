@@ -20,7 +20,7 @@
                 success: function(data){
                     html = "";
 
-                    console.log(data.length);
+                    console.log(data);
                     if(data.length > 0){
                         for(i=0; i<data.length;i++){
                             html += "<tr>";
@@ -78,7 +78,8 @@
                             data: { valeur : $(this).val(), groupe: $('select[name="gar_group"]').val(), horaire: $(this).text(), nom: $(this).attr('nom'), prenom: $(this).attr('prenom') },
                             url: '{{ route("AjaxAjoutHoraire") }}',
                             success: function(data) {
-                                alert('Enfant Pointé !');
+                                alert("Enfant pointé !");
+                                ChargementEleve();
                             }
                         });
                     });

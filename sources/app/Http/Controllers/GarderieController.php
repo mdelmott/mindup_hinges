@@ -42,15 +42,17 @@ class GarderieController extends Controller {
 			}
 
 			if(Carbon::now()->format("H") + 2 < 12){
-				$garderie_profil = DB::select("SELECT * FROM profil, adresse
+				$garderie_profil = DB::select("SELECT * FROM groupe, groupe_profil, profil, adresse
 												WHERE profil.id not in (SELECT id_profil FROM gar_profil
 												WHERE id_gar IN (SELECT MAX(id) FROM garderie WHERE date = '".Carbon::now()->format("Y-m-d")."'))
-												AND profil.adresse_id = adresse.id");
+												AND profil.adresse_id = adresse.id AND groupe.nom = '".$_GET['groupe']."' and groupe_profil.groupe_id = groupe.id and groupe_profil.profil_id = profil.id");
 			}else{
-				$garderie_profil = DB::select("SELECT * FROM profil, adresse
-												WHERE (profil.id in (SELECT id_profil FROM gar_profil WHERE duree_soir IS NULL AND id_gar IN (SELECT MAX(id) FROM garderie WHERE date = '".Carbon::now()->format("Y-m-d")."'))
-												OR profil.id NOT IN (SELECT id_profil FROM gar_profil WHERE id_gar IN (SELECT MAX(id) FROM garderie WHERE date = '".Carbon::now()->format("Y-m-d")."')))
-												AND profil.adresse_id = adresse.id");
+				$garderie_profil = DB::select("SELECT * FROM groupe, groupe_profil, profil, adresse
+												WHERE (profil.id in (SELECT id_profil FROM gar_profil WHERE duree_soir IS NULL
+														AND id_gar IN (SELECT MAX(id) FROM garderie WHERE date = '".Carbon::now()->format("Y-m-d")."'))
+														OR profil.id NOT IN (SELECT id_profil FROM gar_profil WHERE id_gar IN (SELECT MAX(id) FROM garderie WHERE date = '".Carbon::now()->format("Y-m-d")."')))
+														AND profil.adresse_id = adresse.id AND profil.adresse_id = adresse.id AND groupe.nom = '".$_GET['groupe']."'
+														and groupe_profil.groupe_id = groupe.id and groupe_profil.profil_id = profil.id");
 			}
 
 			DB::setFetchMode(PDO::FETCH_CLASS);
