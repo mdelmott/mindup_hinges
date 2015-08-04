@@ -18,7 +18,7 @@ class EnseignantController extends Controller {
 	{
 		DB::setFetchMode(PDO::FETCH_ASSOC);
 		$groupe_class = DB::table("groupe")->select("*")
-			->where("type","=","classe")
+			->where("type","=", 1)
 			->get();
 		DB::setFetchMode(PDO::FETCH_CLASS);
 
