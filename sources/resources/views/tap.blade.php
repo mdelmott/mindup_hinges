@@ -6,23 +6,11 @@ use Carbon\Carbon;
 
 @section('head')
     <script src="{{ asset('/js/bower_components/jquery/dist/jquery.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>  
     <script type="text/javascript">
-        $(document).ready(function(){
-
-            //Activation des boutons (deviennent bleu) et modification de la value (0 ou 1)
-            $('.button').click(function(){
-                test = $(this).attr('class').match(/btn-primary/g);
-
-
-                if( test == null){
-                    $(this).attr('class', $(this).attr('class') + " btn-primary" );
-                    $(this).val('1');
-                }else{
-                    $(this).attr('class', $(this).attr('class').replace('btn-primary', ''));
-                    $(this).val('0');
-                }
-            })
-        });
+        function popover(){
+            $('.remarque').popover();
+        }
     </script>
 @endsection
 
@@ -48,14 +36,9 @@ use Carbon\Carbon;
                 </div>
 
                 <div class="col-md-10 col-md-offset-1 margin-top-50">
-                    {!! Form::model(['class' => 'form-inline', 'url' => 'foo/bar']) !!}
+                    {!! Form::open(['name' => 'form1', 'url' => '/TAP']) !!}
                     <div class="col-md-6 col-sm-6 col-xs-7 col-xs-offset-3 col-sm-offset-3 col-md-offset-3">
-                        {!! Form::select('eleve',
-                        [
-                        "M. Dupont" => "M. Dupont",
-                        "Mme. Dupont" => "Mme. Dupont",
-                        ],
-                        null, ['class' => 'form-control']) !!}
+                        {!! Form::select('groupe',$groupes,$oldGroupe, ['onChange' => 'document.form1.submit()', 'class' => 'form-control']) !!}
                     </div>
 
                     <table class="table table-striped margin-top-15">
@@ -64,38 +47,11 @@ use Carbon\Carbon;
                             <th>Profils</th><th>Nom</th><th>Prenom</th><th>Présent / Absent</th>
                         </tr>
                         </thead>
-                        <tr>
-                            <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> </td><td>Jean</td><td>Paul</td>
-                            <td>
-                                <div class="col-md-5 col-sm-5">
-                                    {!! Form::button('Present', ['class' => 'button form-control']) !!}
-                                </div>
-                                <div class="col-md-5 col-sm-5">
-                                    {!! Form::button('Absent', ['class' => 'button form-control']) !!}
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> </td><td>Jean</td><td>Jacques</td>
-                            <td>
-                                <div class="col-md-5 col-sm-5">
-                                    {!! Form::button('Present', ['class' => 'button form-control']) !!}
-                                </div>
-                                <div class="col-md-5 col-sm-5">
-                                    {!! Form::button('Absent', ['class' => 'button form-control']) !!}
-                                </div>
-                            </td>
-                        </tr>
+                        {!! HTML::showEspacesTable($groupe,'TAP') !!}
                     </table>
-
-                    <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-4">
-                        {!! Form::submit('Enregistrer', ['class' => 'button form-control btn-primary']) !!}
-                    </div>
                     {!! Form::close() !!}
                 </div>
                 <div class="clearfix"></div>
-
-
             </div>
         </div>
         <div class="clearfix"></div>

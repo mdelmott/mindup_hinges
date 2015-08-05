@@ -94,7 +94,7 @@ class Profil extends Model {
 	public static function addRepas($id,$repas_id,$hd,$prix){
 		$count = DB::table('repas_profil')->where(['id_profil' => $id, 'id_repas' => $repas_id])->count();
 		if($count == 0){
-			DB::table("repas_profil")->insert(['id_profil' => $id, 'id_repas' => $repas_id, 'hors_delai' => $hd, 'absent' => 0, 'prix' => $prix]);
+			DB::table("repas_profil")->insert(['id_profil' => $id, 'id_repas' => $repas_id, 'hors_delai' => $hd, 'absent' => -1, 'prix' => $prix]);
 		}
 	}
 
@@ -102,6 +102,9 @@ class Profil extends Model {
 		DB::table("repas_profil")->where(['id_profil' => $id, 'id_repas' => $repas_id])->delete();
 	}
 
+	public static function presenceCafet($id,$presence){
+		DB::table('repas_profil')->where('id',$id)->update(['absent' => $presence]);
+	}
 
 	public static function getTAP($id){
 		return DB::table("tap")->join('tap_profil', 'tap.id', '=', 'tap_profil.id_tap')->where('tap_profil.id_profil', $id)->get();
@@ -110,12 +113,25 @@ class Profil extends Model {
 	public static function addTAP($id,$tap_id,$prix){
 		$count = DB::table('tap_profil')->where(['id_profil' => $id, 'id_tap' => $tap_id])->count();
 		if($count == 0){
-			DB::table("tap_profil")->insert(['id_profil' => $id, 'id_tap' => $tap_id, 'absent' => 0, 'prix' => $prix]);
+			DB::table("tap_profil")->insert(['id_profil' => $id, 'id_tap' => $tap_id, 'absent' => -1, 'prix' => $prix]);
 		}
 	}
 
 	public static function deleteTAP($id,$tap_id){
 		DB::table("tap_profil")->where(['id_profil' => $id, 'id_tap' => $tap_id])->delete();
+	}
+
+	public static function presenceTap($id,$prix){
+		if($prix == null){
+			DB::table('tap_profil')->where('id',$id)->update(['absent' => 0]);
+		}else{
+			DB::table('tap_profil')->where('id',$id)->update(['absent' => 1, 'prix' => $prix]);
+		}
+	}
+
+	public static function getAdresseFromTapProfilTable($tap_profil_id){
+		$profil = DB::table("tap_profil")->join('profil','tap_profil.id_profil','=','profil.id')->where('tap_profil.id',$tap_profil_id)->get();
+		return DB::table("adresse")->where('id',$profil[0]->adresse_id)->get();
 	}
 
 }

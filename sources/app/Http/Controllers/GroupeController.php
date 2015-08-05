@@ -57,8 +57,8 @@ class GroupeController extends Controller {
 		
 		switch($action){
 			case "Ajouter" : $this->addProfil();break;
-			case "Enregistrer": return $this->update();break;
-			case "Supprimer":  return $this->delete();break;
+			case "Enregistrer les modifications": return $this->update();break;
+			case "Supprimer ce groupe":  return $this->delete();break;
 			default: return $this->show();break;
 		}
 

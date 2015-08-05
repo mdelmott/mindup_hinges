@@ -45,8 +45,8 @@ class ProfilController extends Controller {
 	public function updateOrDelete(){
 		$action = Input::get('action');
 		switch($action){
-			case "Supprimer" : return $this->delete();break;
-			case "Enregistrer": return $this->update();break;
+			case "Supprimer ce profil" : return $this->delete();break;
+			case "Enregistrer les modifications": return $this->update();break;
 			default: return $this->show();break;
 		}	
 	}

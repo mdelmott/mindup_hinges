@@ -30,8 +30,8 @@
             {!! Form::label('remarques', 'Remarques', ['class' => 'col-md-3 col-sm-3 col-xs-3']) !!} {!! Form::text('remarques', $remarques, ['class' => "form-control input-text"]) !!}
             <div class="clearfix"></div>
             </br>
-            {!! Form::submit('Supprimer', ['name' => 'action','class' => 'btn btn-primary col-md-5 col-sm-5 col-xs-5 col-md-offset-1 col-sm-offset-1 col-xs-offset-1'])!!}
-            {!! Form::submit('Enregistrer', ['name' => 'action','class' => 'btn btn-primary col-md-5 col-sm-5 col-xs-5 col-md-offset-1 col-sm-offset-1 col-xs-offset-1'])!!}
+            {!! Form::submit('Supprimer ce profil', ['name' => 'action','class' => 'btn btn-primary col-md-5 col-sm-5 col-xs-5 col-md-offset-1 col-sm-offset-1 col-xs-offset-1'])!!}
+            {!! Form::submit('Enregistrer les modifications', ['name' => 'action','class' => 'btn btn-primary col-md-5 col-sm-5 col-xs-5 col-md-offset-1 col-sm-offset-1 col-xs-offset-1'])!!}
             {!! Form::close() !!}
         </div>
         <div class="clearfix"></div>

@@ -32,13 +32,15 @@
                 {!! HTML::showTable($groupe,'Groupes') !!}
             </table>
 
-            <div class="col-md-7 col-sm-5 col-xs-6 col-md-offset-1">
-                {!! Form::select('eleve', $eleves, null, ['class' => 'form-control']) !!}
-            </div>
+            <?php if(count($eleves) > 0){ ?>
+                <div class="col-md-7 col-sm-5 col-xs-6 col-md-offset-1">
+                    {!! Form::select('eleve', $eleves, null, ['class' => 'form-control']) !!}
+                </div>
 
-            <div class="col-md-3 col-sm-5 col-xs-5 col-md-offset-1">
-                {!! Form::submit('Ajouter', ['name' => 'action', 'class' => 'btn btn-primary form-control'])!!}
-            </div>
+                <div class="col-md-3 col-sm-5 col-xs-5 col-md-offset-1">
+                    {!! Form::submit('Ajouter', ['name' => 'action', 'class' => 'btn btn-primary form-control'])!!}
+                </div>
+            <?php } ?>
 
             {!! Form::submit('Enregistrer', ['name' => 'action', 'class' => 'btn btn-primary form-control margin-top-20'])!!}
 

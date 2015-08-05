@@ -26,17 +26,19 @@
                     {!! HTML::showTable($classe,'Classes') !!}
                 </table>
 
-                <div class="col-md-7 col-sm-5 col-xs-6 col-md-offset-1">
-                    {!! Form::select('eleve',$eleves, null, ['class' => 'form-control']) !!}
-                </div>
+                <?php if(count($eleves) > 0){ ?>
+                    <div class="col-md-7 col-sm-5 col-xs-6 col-md-offset-1">
+                        {!! Form::select('eleve',$eleves, null, ['class' => 'form-control']) !!}
+                    </div>
 
-                <div class="col-md-3 col-sm-5 col-xs-5 col-md-offset-1">
-                    {!! Form::submit('Ajouter', ['name'=>'action', 'class' => 'btn btn-primary form-control'])!!}
-                </div>
+                    <div class="col-md-3 col-sm-5 col-xs-5 col-md-offset-1">
+                        {!! Form::submit('Ajouter', ['name'=>'action', 'class' => 'btn btn-primary form-control'])!!}
+                    </div>
+                <?php } ?>
 
                 </br></br>
-                <div class="col-md-5 col-sm-6 col-xs-7 col-md-offset-1">{!! Form::submit('Supprimer', ['name' =>'action','class' => 'btn btn-primary form-control'])!!}</div>
-                <div class="col-md-5 col-sm-5 col-xs-5 col-md-offset-1">{!! Form::submit('Enregistrer', ['name' => 'action','class' => 'btn btn-primary form-control'])!!}</div>
+                <div class="col-md-5 col-sm-6 col-xs-7 col-md-offset-1">{!! Form::submit('Supprimer cette classe', ['name' =>'action','class' => 'btn btn-primary form-control'])!!}</div>
+                <div class="col-md-6 col-sm-5 col-xs-5 ">{!! Form::submit('Enregistrer les modifications', ['name' => 'action','class' => 'btn btn-primary form-control'])!!}</div>
             {!! Form::close() !!}
         </div>
         <div class="clearfix"></div>
