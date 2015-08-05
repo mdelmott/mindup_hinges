@@ -60,10 +60,8 @@ Route::post('/Inscription/TAP/Create',['as'=>'Inscription.TAP.Create', 'uses' =>
 
 /* PREVISION */
 
-Route::get('/Prevision',['as'=>'Prevision', 'uses' => function(){
-	return view('administration.prevision');
-}, 'middleware' => 'auth']);
-
+Route::get('/Prevision',['as'=>'Prevision', 'uses' => 'PrevisionController@index', 'middleware' => 'auth']);
+Route::post('/Prevision',['as'=>'Prevision', 'uses' => 'PrevisionController@index', 'middleware' => 'auth']);
 
 /* FACTURATION */
 

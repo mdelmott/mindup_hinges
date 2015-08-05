@@ -134,4 +134,9 @@ class Profil extends Model {
 		return DB::table("adresse")->where('id',$profil[0]->adresse_id)->get();
 	}
 
+	public static function getCountCafetForDate($d){
+		$count = DB::table("repas_profil")->join('repas','repas_profil.id_repas','=','repas.id')->where('repas.date',$d)->count();
+		$objectToReturn = ['date' => $d , 'count' => $count];
+		return $objectToReturn;
+	}
 }

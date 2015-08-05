@@ -1,5 +1,7 @@
 <?php namespace App;
 
+use Carbon\Carbon;
+
 class Util{
 
 	public static function stringifyObject($object,$type){
@@ -19,6 +21,7 @@ class Util{
 		return $returnedObject;
 	}
 
+	
 	public static function diff($array1,$array2){
 		
 		$array3 = [];
@@ -43,6 +46,7 @@ class Util{
 		return $array3;
 	} 
 
+	
 	public static function merge($array1,$array2){
 		
 		$array3 = [];
@@ -62,5 +66,23 @@ class Util{
 		return $array3;
 	} 
 
+	
+	public static function getDates(){
 
+		$flag = 0;
+		$dates = [];
+		$date = Carbon::now();
+
+		while($flag != 2){
+			if($date->dayOfWeek !== Carbon::SATURDAY && $date->dayOfWeek !== Carbon::SUNDAY){
+			 	array_push($dates,date_format($date,'Y-m-d'));
+			 	if($date->dayOfWeek === Carbon::FRIDAY){
+			 		$flag ++;
+			 	}
+			}
+			$date->addDays(1);
+		}
+
+		return $dates;
+	}
 }

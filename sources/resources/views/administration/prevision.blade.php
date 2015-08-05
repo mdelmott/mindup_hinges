@@ -21,31 +21,13 @@
                 </div>
 
                 <div class="col-md-10 col-sm-7  col-md-offset-1 margin-top-50">
-                    {!! Form::model(['class' => 'form-inline', 'url' => 'foo/bar']) !!}
+                    {!! Form::open(['name' => 'form1', 'url' => '/Prevision']) !!}
                          <div class="col-md-6 col-sm-5 col-xs-7 col-xs-offset-3 col-md-offset-3">
-                            {!! Form::select('eleve',
-                                [
-                                "Jean" => 'Jean',
-                                'Jean Pierre' => 'Jean Pierre',
-                                'Jean Jacques' => 'Jean Jacques',
-                                'Jean Paul' => 'Jean Paul',
-                                'Jean François' => 'Jean François'
-                                ],
-                                null, ['class' => 'form-control']) !!}
+                            {!! Form::select('classe', $classes, $oldClasse, ['onChange' => 'document.form1.submit()','class' => 'form-control']) !!}
                         </div>
-
+                        <div class="clearfix"></div></br>
                         <table class="table table-striped margin-top-15">
-                            <thead>
-                                <tr>
-                                    <th>Nom</th><th>Prenom</th><th>J12</th><th>V13</th><th>L16</th><th>Ma17</th><th>J19</th>
-                                </tr>
-                            </thead>
-                            <tr>
-                                <td>Jean</td><td>Paul</td><td>X</td><td></td><td>X</td><td></td><td>X</td>
-                            </tr>
-                            <tr>
-                                <td>Jean</td><td>Jacques</td><td></td><td>X</td><td></td><td>X</td><td></td>
-                            </tr>
+                            {!! HTML::showPrevisionTable($prevision,$eleves) !!}
                         </table>
                     {!! Form::close() !!}
                 </div>

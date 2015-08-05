@@ -58,4 +58,12 @@ class Classe extends Model {
 		return $returnedObject;
 	}
 
+	public static function getPrevisions($id, $d){
+		$table1 = DB::table("profil")->join('repas_profil', 'profil.id', '=', 'repas_profil.id_profil')->where(['profil.classe_id' => $id])->get();
+		$table2 = DB::table("repas")->join('repas_profil', 'repas.id', '=', 'repas_profil.id_repas')->where('repas.date', $d)->get(); 
+		$repas_profil =  Util::merge($table1,$table2);
+		$returnedObject = ['date' => $d ,'profils' => $repas_profil, 'count' => count($repas_profil)]; 
+		return $returnedObject;
+	}
+
 }

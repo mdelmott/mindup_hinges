@@ -8,6 +8,8 @@ use Illuminate\Support\ServiceProvider;
 use Collective\Html\FormBuilder;
 use Illuminate\Html\HtmlBuilder;
 
+use Carbon\Carbon;
+
 
 class HtmlMacrosServiceProvider extends ServiceProvider{
 
@@ -15,6 +17,7 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 	{
 		$this->showTable();
 		$this->showEspacesTable();
+		$this->showPrevisionTable();
 	}
 
 	private function showTable()
@@ -47,6 +50,50 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 					<a href ="/mindup_hinges/sources/public/'. $type .'/Check/'. $t['id'] .'/Absent"><input type="button" value="Absent" class="btn btn-primary form-control"></a></td></tr>
 				</div>';
 			}
+			return $show;
+		});		
+	}
+
+	private function showPrevisionTable()
+	{
+		HtmlBuilder::macro('showPrevisionTable', function($table, $eleves)
+		{
+			if(count($eleves)>0){
+				$show = '<thead><tr><th>Nom</th><th>Prenom</th>';
+			}else{
+				$show = '<thead><tr><th>Jour</th>';
+			}
+			foreach ($table as $t) {
+				setlocale(LC_ALL,'French');
+				$d = Carbon::createFromFormat('Y-m-d',$t['date'])->formatLocalized('%a %d');
+				$show = $show . '<th>'. $d .'</th>';
+			}
+			$show = $show . '</tr></thead>';
+			foreach ($eleves as $e) {
+				$show = $show . '<tr><td>' . $e->nom . '</td><td>' . $e->prenom;   
+				foreach ($table as $t) {
+					$flag = false;
+					foreach ($t['profils'] as $p) {
+						if($p->id_profil == $e->id){
+							$flag = true;break;
+						}
+					}
+					if($flag == true){
+						$show = $show . '<td>X</td>';
+					}else{
+						$show = $show . '<td></td>';
+					}
+				}
+				$show = $show . '</tr>';
+			}
+			$show =  $show . "<tr><td>Nombre d'élèves</td>";
+			if(count($eleves)>0){
+				$show = $show . '<td></td>';
+			}
+			foreach ($table as $t) {
+				$show = $show . '<td>'. $t['count'] .'</td>';
+			}
+			$show = $show . "</tr>";
 			return $show;
 		});		
 	}
