@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="018c8167-1fb5-440c-8b57-a0cf0dbf9dfa" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sources/app/Http/Controllers/EnseignantController.php" afterPath="$PROJECT_DIR$/sources/app/Http/Controllers/EnseignantController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php" afterPath="$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php" afterPath="$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php" afterPath="$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mindup_hinges.iws" />
@@ -30,21 +29,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GarderieController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GarderieController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73952097" vertical-offset="811" max-vertical-offset="2910">
-              <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
+            <state vertical-scroll-proportion="-19.375" vertical-offset="60" max-vertical-offset="2940">
+              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               <folding>
-                <marker date="1438357163000" expanded="true" signature="1106:1361" placeholder="SELECT * FRO..profil..." />
-                <marker date="1438357163000" expanded="true" signature="1172:1313" placeholder="SELECT id_pr..gar_profil..." />
-                <marker date="1438357163000" expanded="true" signature="1234:1268" placeholder="SELECT MAX(i..garderie..." />
-                <marker date="1438357163000" expanded="true" signature="1410:1838" placeholder="SELECT * FRO..profil..." />
-                <marker date="1438357163000" expanded="true" signature="1473:1625" placeholder="SELECT id_pr..gar_profil..." />
-                <marker date="1438357163000" expanded="true" signature="1546:1580" placeholder="SELECT MAX(i..garderie..." />
-                <marker date="1438357163000" expanded="true" signature="1660:1789" placeholder="SELECT id_pr..gar_profil..." />
-                <marker date="1438357163000" expanded="true" signature="1710:1744" placeholder="SELECT MAX(i..garderie..." />
+                <marker date="1438680931000" expanded="true" signature="1097:1392" placeholder="SELECT * FRO..profil..." />
+                <marker date="1438680931000" expanded="true" signature="1097:1394" placeholder="SELECT * FRO..profil..." />
+                <marker date="1438680931000" expanded="true" signature="1097:1494" placeholder="SELECT * FRO..profil..." />
+                <marker date="1438680931000" expanded="true" signature="1186:1291" placeholder="SELECT id_pr..gar_profil..." />
+                <marker date="1438680931000" expanded="true" signature="1186:1327" placeholder="SELECT id_pr..gar_profil..." />
+                <marker date="1438680931000" expanded="true" signature="1248:1282" placeholder="SELECT MAX(i..garderie..." />
+                <marker date="1438680931000" expanded="true" signature="1543:2066" placeholder="SELECT * FRO..profil..." />
+                <marker date="1438680931000" expanded="true" signature="1543:2180" placeholder="SELECT * FRO..profil..." />
+                <marker date="1438680931000" expanded="true" signature="1629:1795" placeholder="SELECT id_pr..gar_profil..." />
+                <marker date="1438680931000" expanded="true" signature="1716:1750" placeholder="SELECT MAX(i..garderie..." />
+                <marker date="1438680931000" expanded="true" signature="1832:1961" placeholder="SELECT id_pr..gar_profil..." />
+                <marker date="1438680931000" expanded="true" signature="1882:1916" placeholder="SELECT MAX(i..garderie..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnseignantController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/EnseignantController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33088234" vertical-offset="0" max-vertical-offset="1575">
+              <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+              <folding>
+                <marker date="1438681817000" expanded="true" signature="689:806" placeholder="SELECT * FRO..profil..." />
+                <marker date="1438681817000" expanded="true" signature="723:786" placeholder="SELECT DISTI..groupe_profil..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sources/config/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.125" vertical-offset="1626" max-vertical-offset="3135">
+              <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,38 +78,8 @@
       <file leaf-file-name="Tarif.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sources/app/Tarif.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.375" vertical-offset="0" max-vertical-offset="735">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sources/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sources/app/Http/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.083334" vertical-offset="1390" max-vertical-offset="2145">
-              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClasseController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/ClasseController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-46.25" vertical-offset="0" max-vertical-offset="4770">
-              <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="795">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,8 +88,8 @@
       <file leaf-file-name="matin.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.958334" vertical-offset="505" max-vertical-offset="1665">
-              <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1665">
+              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -102,8 +98,8 @@
       <file leaf-file-name="apresmidi.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-52.083332" vertical-offset="265" max-vertical-offset="1830">
-              <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1845">
+              <caret line="80" column="57" selection-start-line="80" selection-start-column="57" selection-end-line="80" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -153,12 +149,12 @@
         <option value="$PROJECT_DIR$/sources/config/app.php" />
         <option value="$PROJECT_DIR$/sources/resources/views/garderie/template.blade.php" />
         <option value="$PROJECT_DIR$/sources/resources/views/app.blade.php" />
-        <option value="$PROJECT_DIR$/sources/app/Http/Controllers/EnseignantController.php" />
         <option value="$PROJECT_DIR$/sources/resources/views/enseignants.blade.php" />
         <option value="$PROJECT_DIR$/sources/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php" />
         <option value="$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php" />
         <option value="$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php" />
+        <option value="$PROJECT_DIR$/sources/app/Http/Controllers/EnseignantController.php" />
       </list>
     </option>
   </component>
@@ -193,7 +189,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -223,54 +218,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mindup_hinges" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mindup_hinges" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mindup_hinges" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mindup_hinges" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="garderie" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -360,6 +307,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,6 +316,7 @@
     <property name="options.lastSelected" value="configurable.group.appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CSC" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -437,23 +386,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299389" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2545825" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2545825" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3102041" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23014256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18131869" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18498169" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23061225" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -539,13 +488,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sources/storage/framework/views/bb4cfb6ae680a01e2a4fa5740bf05048">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55759597" vertical-offset="161" max-vertical-offset="990">
           <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sources/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php">
@@ -723,13 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sources/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-33.75" vertical-offset="0" max-vertical-offset="3090">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sources/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.2389381" vertical-offset="900" max-vertical-offset="3450">
@@ -758,13 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/EnseignantController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1575">
-          <caret line="31" column="155" selection-start-line="31" selection-start-column="155" selection-end-line="31" selection-end-column="155" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sources/resources/views/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="271" max-vertical-offset="1095">
@@ -783,7 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="225">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -791,39 +725,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4852941" vertical-offset="0" max-vertical-offset="1185">
           <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="34" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/ClasseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-46.25" vertical-offset="0" max-vertical-offset="4770">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="4770">
           <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sources/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.083334" vertical-offset="1390" max-vertical-offset="2145">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1390" max-vertical-offset="2145">
           <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.958334" vertical-offset="505" max-vertical-offset="1665">
-          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-52.083332" vertical-offset="265" max-vertical-offset="1830">
-          <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,31 +746,69 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sources/app/Tarif.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.375" vertical-offset="0" max-vertical-offset="735">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="795">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/matin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1665">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sources/resources/views/garderie/apresmidi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1845">
+          <caret line="80" column="57" selection-start-line="80" selection-start-column="57" selection-end-line="80" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sources/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.125" vertical-offset="1626" max-vertical-offset="3135">
+          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/GarderieController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73952097" vertical-offset="811" max-vertical-offset="2910">
-          <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
+        <state vertical-scroll-proportion="-19.375" vertical-offset="60" max-vertical-offset="2940">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding>
-            <marker date="1438357163000" expanded="true" signature="1106:1361" placeholder="SELECT * FRO..profil..." />
-            <marker date="1438357163000" expanded="true" signature="1172:1313" placeholder="SELECT id_pr..gar_profil..." />
-            <marker date="1438357163000" expanded="true" signature="1234:1268" placeholder="SELECT MAX(i..garderie..." />
-            <marker date="1438357163000" expanded="true" signature="1410:1838" placeholder="SELECT * FRO..profil..." />
-            <marker date="1438357163000" expanded="true" signature="1473:1625" placeholder="SELECT id_pr..gar_profil..." />
-            <marker date="1438357163000" expanded="true" signature="1546:1580" placeholder="SELECT MAX(i..garderie..." />
-            <marker date="1438357163000" expanded="true" signature="1660:1789" placeholder="SELECT id_pr..gar_profil..." />
-            <marker date="1438357163000" expanded="true" signature="1710:1744" placeholder="SELECT MAX(i..garderie..." />
+            <marker date="1438680931000" expanded="true" signature="1097:1392" placeholder="SELECT * FRO..profil..." />
+            <marker date="1438680931000" expanded="true" signature="1097:1394" placeholder="SELECT * FRO..profil..." />
+            <marker date="1438680931000" expanded="true" signature="1097:1494" placeholder="SELECT * FRO..profil..." />
+            <marker date="1438680931000" expanded="true" signature="1186:1291" placeholder="SELECT id_pr..gar_profil..." />
+            <marker date="1438680931000" expanded="true" signature="1186:1327" placeholder="SELECT id_pr..gar_profil..." />
+            <marker date="1438680931000" expanded="true" signature="1248:1282" placeholder="SELECT MAX(i..garderie..." />
+            <marker date="1438680931000" expanded="true" signature="1543:2066" placeholder="SELECT * FRO..profil..." />
+            <marker date="1438680931000" expanded="true" signature="1543:2180" placeholder="SELECT * FRO..profil..." />
+            <marker date="1438680931000" expanded="true" signature="1629:1795" placeholder="SELECT id_pr..gar_profil..." />
+            <marker date="1438680931000" expanded="true" signature="1716:1750" placeholder="SELECT MAX(i..garderie..." />
+            <marker date="1438680931000" expanded="true" signature="1832:1961" placeholder="SELECT id_pr..gar_profil..." />
+            <marker date="1438680931000" expanded="true" signature="1882:1916" placeholder="SELECT MAX(i..garderie..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sources/app/Http/Controllers/EnseignantController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33088234" vertical-offset="0" max-vertical-offset="1575">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding>
+            <marker date="1438681817000" expanded="true" signature="689:806" placeholder="SELECT * FRO..profil..." />
+            <marker date="1438681817000" expanded="true" signature="723:786" placeholder="SELECT DISTI..groupe_profil..." />
           </folding>
         </state>
       </provider>
