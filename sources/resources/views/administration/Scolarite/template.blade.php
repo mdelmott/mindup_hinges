@@ -2,9 +2,9 @@
 
 @section('content')
     <?php
-    $profils = Route::currentRouteName() == "Scolarite" || Route::currentRouteName() == "Scolarite.Profils" || Route::currentRouteName() == "Scolarite.Profils.Supprimer" ? "btn-primary" : "";
-    $classes = Route::currentRouteName() == "Scolarite.Classes" || Route::currentRouteName() == "Scolarite.Classes.Supprimer" ? "btn-primary" : "";
-    $groupes = Route::currentRouteName() == "Scolarite.Groupes" || Route::currentRouteName() == "Scolarite.Groupes.Supprimer" ? "btn-primary" : "";
+    $profils = Route::currentRouteName() == "Scolarite" || Route::currentRouteName() == "Scolarite.Profils" || Route::currentRouteName() == "Scolarite.Profils.ModifierOuSupprimer" || Route::currentRouteName() == "Scolarite.Profils.Create" || Route::currentRouteName() == "Scolarite.Profils.UpdateOrDelete" ? "btn-primary" : "";
+    $classes = Route::currentRouteName() == "Scolarite.Classes" || Route::currentRouteName() == "Scolarite.Classes.ModifierOuSupprimer" || Route::currentRouteName() == "Scolarite.Classes.Create" || Route::currentRouteName() == "Scolarite.Classes.DeleteProfil" || Route::currentRouteName() == "Scolarite.Classes.UpdateOrDelete" ? "btn-primary" : "";
+    $groupes = Route::currentRouteName() == "Scolarite.Groupes" || Route::currentRouteName() == "Scolarite.Groupes.ModifierOuSupprimer" || Route::currentRouteName() == "Scolarite.Groupes.Create" || Route::currentRouteName() == "Scolarite.Groupes.DeleteProfil" || Route::currentRouteName() == "Scolarite.Groupes.UpdateOrDelete" ? "btn-primary" : "";
     ?>
     <div class="container">
         <div class="row">

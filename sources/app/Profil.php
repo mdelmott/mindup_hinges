@@ -88,7 +88,11 @@ class Profil extends Model {
 	}
 
 	public static function getRepas($id){
-		return DB::table("repas")->join('repas_profil', 'repas.id', '=', 'repas_profil.id_repas')->where('repas_profil.id_profil', $id)->get();
+		return DB::table("repas")->join('repas_profil', 'repas.id', '=', 'repas_profil.id_repas')->where(['repas_profil.id_profil' => $id, 'repas_profil.hors_delai' => 0])->get();
+	}
+
+	public static function getRepasHD($id){
+		return DB::table("repas")->join('repas_profil', 'repas.id', '=', 'repas_profil.id_repas')->where(['repas_profil.id_profil' => $id, 'repas_profil.hors_delai' => 1])->get();
 	}
 
 	public static function addRepas($id,$repas_id,$hd,$prix){

@@ -42,16 +42,23 @@ class InscriptionCantineController extends Controller {
 		if(count($profils) > 0){
 			$profil_id = $profils[0]->id;
 			$repas = Profil::getRepas($profil_id);
+			$repas_hd = Profil::getRepasHD($profil_id);
 		}
 
 		$dates = [];
+		$dates_hd = [];
 
 		foreach ($repas as $r) {
 			$date = date_create($r->date);
 			array_push($dates,date_format($date,'m/d/Y'));
 		}
 
-		Javascript::put(['dates' => $dates]);
+		foreach ($repas_hd as $r) {
+			$date_hd = date_create($r->date);
+			array_push($dates_hd,date_format($date_hd,'m/d/Y'));
+		}
+
+		Javascript::put(['dates' => $dates, 'dates_hd' => $dates_hd]);
 
 		Session::put('profils',$profils);
 		Session::put('eleves',$eleves);
@@ -85,15 +92,22 @@ class InscriptionCantineController extends Controller {
 		$profil_id = $profils[$profil_id]->id;
 
 		$repas = Profil::getRepas($profil_id);
+		$repas_hd = Profil::getRepasHD($profil_id);
 
 		$dates = [];
+		$dates_hd = [];
 
 		foreach ($repas as $r) {
 			$date = date_create($r->date);
 			array_push($dates,date_format($date,'m/d/Y'));
 		}
 
-		Javascript::put(['dates' => $dates]);
+		foreach ($repas_hd as $r) {
+			$date_hd = date_create($r->date);
+			array_push($dates_hd,date_format($date_hd,'m/d/Y'));
+		}
+
+		Javascript::put(['dates' => $dates, 'dates_hd' => $dates_hd]);
 
 		return View::make('administration.inscription.cantine',['eleves' => $eleves, "oldeleve" => $oldeleve]);			
 
@@ -129,15 +143,22 @@ class InscriptionCantineController extends Controller {
 		}
 
 		$repas = Profil::getRepas($profil_id);
+		$repas_hd = Profil::getRepasHD($profil_id);
 
 		$dates = [];
+		$dates_hd = [];
 
 		foreach ($repas as $r) {
 			$date = date_create($r->date);
 			array_push($dates,date_format($date,'m/d/Y'));
 		}
 
-		Javascript::put(['dates' => $dates]);
+		foreach ($repas_hd as $r) {
+			$date_hd = date_create($r->date);
+			array_push($dates_hd,date_format($date_hd,'m/d/Y'));
+		}
+
+		Javascript::put(['dates' => $dates, 'dates_hd' => $dates_hd]);
 
 		return View::make('administration.inscription.cantine',['eleves' => $eleves, 'oldeleve' => $oldeleve]); 
 	}
@@ -165,16 +186,20 @@ class InscriptionCantineController extends Controller {
 			}
 		}		
 
-		$repas = Profil::getRepas($profil_id);
-
 		$dates = [];
+		$dates_hd = [];
 
 		foreach ($repas as $r) {
 			$date = date_create($r->date);
 			array_push($dates,date_format($date,'m/d/Y'));
 		}
 
-		Javascript::put(['dates' => $dates]);
+		foreach ($repas_hd as $r) {
+			$date_hd = date_create($r->date);
+			array_push($dates_hd,date_format($date_hd,'m/d/Y'));
+		}
+
+		Javascript::put(['dates' => $dates, 'dates_hd' => $dates_hd]);
 
 		return View::make('administration.inscription.cantine',['eleves' => $eleves, 'oldeleve' => $oldeleve]);	
 	}

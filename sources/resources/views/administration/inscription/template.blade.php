@@ -2,8 +2,8 @@
 
 @section('content')
     <?php
-    $cantine = Route::currentRouteName() == "Inscription" || Route::currentRouteName() == "Inscription.Cantine" ? "btn-primary" : "";
-    $tap = Route::currentRouteName() == "Inscription.TAP" ? "btn-primary" : "";
+    $cantine = Route::currentRouteName() == "Inscription" || Route::currentRouteName() == "Inscription.Cantine" || Route::currentRouteName() == "Inscription.Cantine.Create" ? "btn-primary" : "";
+    $tap = Route::currentRouteName() == "Inscription.TAP" || Route::currentRouteName() == "Inscription.TAP.Create" ? "btn-primary" : "";
     ?>
     <div class="container">
         <div class="row">

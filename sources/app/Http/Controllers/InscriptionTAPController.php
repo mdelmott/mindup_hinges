@@ -58,7 +58,7 @@ class InscriptionTAPController extends Controller {
 		Session::put('profils',$profils);
 		Session::put('eleves',$eleves);
 
-		return View::make('administration.inscription.TAP',['eleves' => $eleves, 'oldeleve' => '']);	
+		return View::make('administration.inscription.tap',['eleves' => $eleves, 'oldeleve' => '']);	
 	 	
 	}
 
@@ -98,7 +98,7 @@ class InscriptionTAPController extends Controller {
 
 		Javascript::put(['dates' => $dates]);
 
-		return View::make('administration.inscription.TAP',['eleves' => $eleves, "oldeleve" => $oldeleve]);			
+		return View::make('administration.inscription.tap',['eleves' => $eleves, "oldeleve" => $oldeleve]);			
 
 	}
 
@@ -145,7 +145,7 @@ class InscriptionTAPController extends Controller {
 
 		Javascript::put(['dates' => $dates]);
 
-		return View::make('administration.inscription.TAP',['eleves' => $eleves, 'oldeleve' => $oldeleve]); 
+		return View::make('administration.inscription.tap',['eleves' => $eleves, 'oldeleve' => $oldeleve]); 
 	}
 
 
@@ -182,6 +182,6 @@ class InscriptionTAPController extends Controller {
 
 		Javascript::put(['dates' => $dates]);
 
-		return View::make('administration.inscription.TAP',['eleves' => $eleves, 'oldeleve' => $oldeleve]);	
+		return View::make('administration.inscription.tap',['eleves' => $eleves, 'oldeleve' => $oldeleve]);	
 	}
 }
