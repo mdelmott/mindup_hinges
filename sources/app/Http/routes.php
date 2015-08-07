@@ -83,17 +83,11 @@ Route::post('/Tarifs/Update',['as'=>'Tarifs.Update', 'uses'=>'TarifController@up
 
 /* Comptes */
 
-Route::get('/Comptes',['as'=>'Comptes', 'uses' => function(){
-	return view('administration.comptes.administration');
-}, 'middleware' => 'auth']);
-
-Route::get('/Comptes/Administration',['as'=>'Comptes.Administration', 'uses' => function(){
-	return view('administration.comptes.administration');
-}, 'middleware' => 'auth']);
-
-Route::get('/Comptes/Autres',['as'=>'Comptes.Autres', 'uses' => function(){
-	return view('administration.comptes.autres');
-}, 'middleware' => 'auth']);
+Route::get('/Comptes',['as'=>'Comptes', 'uses' => 'GestionComptesController@changeAdminDatas', 'middleware' => 'auth']);
+Route::get('/Comptes/Administration',['as'=>'Comptes.Administration', 'uses' => 'GestionComptesController@changeAdminDatas', 'middleware' => 'auth']);
+Route::post('/Comptes/Administration',['as'=>'Comptes.Administration', 'uses' => 'GestionComptesController@changeAdminDatas', 'middleware' => 'auth']);
+Route::get('/Comptes/Autres',['as'=>'Comptes.Autres', 'uses' => 'GestionComptesController@changeOtherDatas', 'middleware' => 'auth']);
+Route::post('/Comptes/Autres',['as'=>'Comptes.Autres', 'uses' => 'GestionComptesController@changeOtherDatas', 'middleware' => 'auth']);
 
 
 /* Cantines */

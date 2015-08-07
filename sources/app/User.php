@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -38,4 +39,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public static function createUser($login, $mdp){
 		DB::table("users")->insert(['login'=>$login, 'password'=> Hash::make($mdp)]);
 	}
+
+	public static function updateUser($login, $mdp){
+		DB::table("users")->where('login',$login)->update(['password'=> Hash::make($mdp)]);
+	}
+
+	public static function getUsers(){
+		return $users = DB::table("users")->where('login','<>','admin')->get();
+	}	
 }

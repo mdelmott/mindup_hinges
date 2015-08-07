@@ -19,6 +19,7 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 		$this->showEspacesTable();
 		$this->showPrevisionTable();
 		$this->showFacturationTable();
+		$this->showComptesTable();
 	}
 
 	private function showTable()
@@ -50,6 +51,18 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 				<div class="col-md-5 col-sm-5">
 					<a href ="/mindup_hinges/sources/public/'. $type .'/Check/'. $t['id'] .'/Absent"><input type="button" value="Absent" class="btn btn-primary form-control"></a></td></tr>
 				</div>';
+			}
+			return $show;
+		});		
+	}
+
+	private function showComptesTable()
+	{
+		HtmlBuilder::macro('showComptesTable', function($table)
+		{
+			$show = "";
+			foreach ($table as $t) {
+				$show = $show . '<tr><td>' . $t->login . '</td><td>' . $t->password . '</td></tr>';
 			}
 			return $show;
 		});		
