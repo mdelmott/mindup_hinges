@@ -6,9 +6,7 @@ use View;
 
 use App\Profil;
 use App\Classe;
-use App\Tarif;
 use App\Util;
-use App\Adresse;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;

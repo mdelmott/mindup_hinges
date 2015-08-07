@@ -65,22 +65,15 @@ Route::post('/Prevision',['as'=>'Prevision', 'uses' => 'PrevisionController@inde
 
 /* FACTURATION */
 
-Route::get('/Facturation',['as'=>'Facturation', 'uses' => function(){
-	return view('administration.facturation.cantine');
-}, 'middleware' => 'auth']);
+Route::get('/Facturation',['as'=>'Facturation', 'uses' => 'FacturationCantineController@index', 'middleware' => 'auth']);
+Route::get('/Facturation/Cantine',['as'=>'Facturation.Cantine', 'uses' => 'FacturationCantineController@index', 'middleware' => 'auth']);
+Route::post('/Facturation/Cantine',['as'=>'Facturation.Cantine', 'uses' => 'FacturationCantineController@index', 'middleware' => 'auth']);
 
-Route::get('/Facturation/Cantine',['as'=>'Facturation.Cantine', 'uses' => function(){
-	return view('administration.facturation.cantine');
-}, 'middleware' => 'auth']);
+Route::get('/Facturation/Garderie',['as'=>'Facturation.Garderie', 'uses' => 'FacturationGarderieController@index', 'middleware' => 'auth']);
+Route::post('/Facturation/Garderie',['as'=>'Facturation.Garderie', 'uses' => 'tFacturationGarderieController@index', 'middleware' => 'auth']);
 
-Route::get('/Facturation/Garderie',['as'=>'Facturation.Garderie', 'uses' => function(){
-	return view('administration.facturation.garderie');
-}, 'middleware' => 'auth']);
-
-Route::get('/Facturation/TAP',['as'=>'Facturation.TAP', 'uses' => function(){
-	return view('administration.facturation.tap');
-}, 'middleware' => 'auth']);
-
+Route::get('/Facturation/TAP',['as'=>'Facturation.TAP', 'uses' => 'FacturationTAPController@index', 'middleware' => 'auth']);
+Route::post('/Facturation/TAP',['as'=>'Facturation.TAP', 'uses' => 'FacturationTAPController@index', 'middleware' => 'auth']);
 
 /* TARIFS */
 

@@ -18,6 +18,7 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 		$this->showTable();
 		$this->showEspacesTable();
 		$this->showPrevisionTable();
+		$this->showFacturationTable();
 	}
 
 	private function showTable()
@@ -70,7 +71,7 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 			}
 			$show = $show . '</tr></thead>';
 			foreach ($eleves as $e) {
-				$show = $show . '<tr><td>' . $e->nom . '</td><td>' . $e->prenom;   
+				$show = $show . '<tr><td>' . $e->nom . '</td><td>' . $e->prenom . '</td>';   
 				foreach ($table as $t) {
 					$flag = false;
 					foreach ($t['profils'] as $p) {
@@ -94,6 +95,52 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 				$show = $show . '<td>'. $t['count'] .'</td>';
 			}
 			$show = $show . "</tr>";
+			return $show;
+		});		
+	}
+
+	private function showFacturationTable()
+	{
+		HtmlBuilder::macro('showFacturationTable', function($table, $eleves, $type)
+		{
+			if($type == 'tap'){
+				$show = '<thead><tr><th>Nom</th><th>Prenom</th><th>Hingeois</th>';
+			}else{
+				$show = '<thead><tr><th>Nom</th><th>Prenom</th>';
+			}
+			foreach ($table as $t) {
+				setlocale(LC_ALL,'French');
+				$d = Carbon::createFromFormat('Y-m-d',$t['date'])->formatLocalized('%d');
+				$show = $show . '<th>'. $d .'</th>';
+			}
+			$show = $show . '<th>Total</th></tr></thead>';
+			
+			foreach ($eleves as $e) {
+				$show = $show . '<tr><td style="font-weight:bold">' . $e->nom . '</td><td style="font-weight:bold">' . $e->prenom . '</td>';   
+				if($type == 'tap'){
+					if($e->ville == 'Hinges'){
+						$show = $show . '<td>X</td>';
+					}else{
+						$show = $show . '<td></td>';
+					}
+				}
+				$total = 0;
+				foreach ($table as $t) {
+					$flag = false;
+					foreach ($t['profils'] as $p) {
+						if($p->id_profil == $e->id){
+							$flag = true;
+							$show = $show . '<td style="color:darkred">' . number_format($p->prix,1) . '</td>';
+							$total = $total + $p->prix; 
+							break;
+						}
+					}
+					if($flag == false){
+						$show = $show . '<td>0.0</td>';
+					}
+				}
+				$show = $show . '<td style="font-weight:bold">'. number_format($total,1) .' €</td></tr>';
+			}
 			return $show;
 		});		
 	}

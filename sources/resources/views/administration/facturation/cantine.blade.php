@@ -13,44 +13,20 @@
         </div>
 
         <div class="col-md-10 col-md-offset-1 margin-top-10">
-            {!! Form::model(['class' => 'form-inline', 'url' => 'foo/bar']) !!}
+            {!! Form::open(['name' => 'form1', 'url' => '/Facturation/Cantine']) !!}
                    
                  <div class="col-md-7 col-xs-6 col-md-offset-3 margin-top-10">
-                    {!! Form::select('eleve',
-                        [
-                        "Jean" => 'Jean',
-                        'Jean Pierre' => 'Jean Pierre',
-                        'Jean Jacques' => 'Jean Jacques',
-                        'Jean Paul' => 'Jean Paul',
-                        'Jean François' => 'Jean François'
-                        ],
-                        null, ['class' => 'form-control']) !!}
+                    {!! Form::select('classe', $classes, $oldClasse, ['onChange' => 'document.form1.submit()','class' => 'form-control']) !!}
                  </div>
 
                  <div class="col-md-7 col-xs-6 col-md-offset-3 margin-top-10">
-                    {!! Form::select('eleve',
-                        [
-                        "Mars 2015" => 'Mars 2015',
-                        'Avril 2015' => 'Avril 2015',
-                        'Mai 2015' => 'Mai 2015',
-                        'Juin 2015' => 'Juin 2015',
-                        'Juillet 2015' => 'Juillet 2015'
-                        ],
-                        null, ['class' => 'form-control']) !!}
+                    {!! Form::select('mois', $mois, $oldMois, ['onChange' => 'document.form1.submit()' ,'class' => 'form-control']) !!}
                 </div>
 
 
 
-                <table class="table table-striped col-xs-12 margin-top-20">
-                    <thead>
-                    <tr><th>Nom</th><th>Prenom</th><th>L1</th><th>Ma2</th><th>Me3</th><th>J4</th><th>V5</th><th>Total</th></tr>
-                    </thead>
-                    <tr>
-                        <td>Jean</td><td>Paul</td><td>1.80€</td><td></td><td></td><td>1.80€</td><td></td><td>3.6€</td>
-                    </tr>
-                    <tr>
-                        <td>Jean</td><td>Jacques</td><td></td><td>1.80€</td><td></td><td>1.80€</td><td>1.80€</td><td>3.6€</td>
-                    </tr>
+                <table class="table table-striped col-xs-12 margin-top-20" style="left:-125px">
+                    {!! HTML::showFacturationTable($facturation,$eleves,'other') !!}
                 </table>
 
 

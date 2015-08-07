@@ -40,6 +40,10 @@ class Groupe extends Model {
 		return DB::table("groupe")->where('type',0)->get();
 	}
 
+	public static function selectAllGarderie(){
+		return DB::table("groupe")->where('type',1)->get();
+	}
+
 	public static function deleteGroupe($id){
 		DB::table("groupe_profil")->where('groupe_id',$id)->delete();
 		return DB::table("groupe")->where('id',$id)->delete();
@@ -58,6 +62,22 @@ class Groupe extends Model {
 			];
 			array_push($returnedObject, $object);
 		}
+		return $returnedObject;
+	}
+
+	public static function getGarderieFacturation($id, $d){
+		$table1 = DB::table("groupe_profil")->join('gar_profil', 'groupe_profil.profil_id', '=', 'gar_profil.id_profil')->where('groupe_profil.groupe_id', $id)->get();
+		$table2 = DB::table("garderie")->join('gar_profil', 'garderie.id', '=', 'gar_profil.id_gar')->where('garderie.date', $d)->get(); 
+		$repas_profil =  Util::merge($table1,$table2);
+		$returnedObject = ['date' => $d ,'profils' => $repas_profil]; 
+		return $returnedObject;
+	}
+
+	public static function getTAPFacturation($id, $d){
+		$table1 = DB::table("groupe_profil")->join('tap_profil', 'groupe_profil.profil_id', '=', 'tap_profil.id_profil')->where('groupe_profil.groupe_id', $id)->get();
+		$table2 = DB::table("tap")->join('tap_profil', 'tap.id', '=', 'tap_profil.id_tap')->where('tap.date', $d)->get(); 
+		$repas_profil =  Util::merge($table1,$table2);
+		$returnedObject = ['date' => $d ,'profils' => $repas_profil]; 
 		return $returnedObject;
 	}
 }

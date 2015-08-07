@@ -85,4 +85,38 @@ class Util{
 
 		return $dates;
 	}
+
+
+	public static function getMonths(){
+		
+		setlocale(LC_ALL,'en');
+		$months = [];
+		
+		$date = Carbon::now();
+		$month =  $date->formatLocalized('%B');
+		array_push($months,$date->formatLocalized('%B %Y'));
+		$date->addMonths(1);
+
+		while($date->formatLocalized('%B') != $month){
+			array_push($months,$date->formatLocalized('%B %Y'));
+			$date->addMonths(1);			
+		} 
+
+		return $months;
+	}
+	
+	public static function getMonthDates($d){
+		
+		$date = $d->startOfMonth();
+		$dates = [];
+		array_push($dates,date_format($date,'Y-m-d'));
+		$date->addDays(1);
+
+		while($date->formatLocalized('%d') != '1'){
+			array_push($dates,date_format($date,'Y-m-d'));
+			$date->addDays(1);			
+		} 
+		
+		return $dates;
+	}
 }
