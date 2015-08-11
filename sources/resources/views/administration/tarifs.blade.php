@@ -24,19 +24,19 @@
                                     </tr>
                                 </thead>
                                 <tr>
-                                    <td>Matin</td><td>Avant 8h15</td><td>{!! Form::text("Garderieav8h15", $Garderieav8h15 . ' €',["class"=>"form-control"]) !!}</td>
+                                    <td style="line-height:34px">Matin</td><td style="line-height:34px">Avant 8h15</td><td style="line-height:34px">{!! Form::text("Garderieav8h15", $Garderieav8h15, ["class"=>"form-control", "style" => "width:30%;display:inherit"]) !!} &nbsp €</td>
                                 </tr>
                                 <tr>
-                                    <td></td><td>Après 8h15</td><td>{!! Form::text("Garderieap8h15", $Garderieap8h15 . ' €',["class"=>"form-control"]) !!}</td>
+                                    <td></td><td style="line-height:34px">Après 8h15</td><td style="line-height:34px">{!! Form::text("Garderieap8h15", $Garderieap8h15,["class"=>"form-control", "style" => "width:30%;display:inherit"]) !!} &nbsp €</td>
                                 </tr>
                                 <tr>
-                                    <td>Après Midi</td><td>1 heure</td><td>{!! Form::text("Garderie1h", $Garderie1h . ' €',["class"=>"form-control"]) !!}</td>
+                                    <td style="line-height:34px">Après Midi</td><td style="line-height:34px">1 heure</td><td style="line-height:34px">{!! Form::text("Garderie1h", $Garderie1h,["class"=>"form-control", "style" => "width:30%;display:inherit"]) !!} &nbsp €</td>
                                 </tr>
                                 <tr>
-                                    <td></td><td>2 heures</td><td>{!! Form::text("Garderie2h", $Garderie2h . ' €',["class"=>"form-control"]) !!}</td>
+                                    <td></td><td style="line-height:34px">2 heures</td><td style="line-height:34px">{!! Form::text("Garderie2h", $Garderie2h,["class"=>"form-control", "style" => "width:30%;display:inherit"]) !!} &nbsp €</td>
                                 </tr>
                                 <tr>
-                                    <td></td><td>3 heures</td><td>{!! Form::text("Garderie3h", $Garderie3h . ' €',["class"=>"form-control"]) !!}</td>
+                                    <td></td><td style="line-height:34px">3 heures</td><td style="line-height:34px">{!! Form::text("Garderie3h", $Garderie3h,["class"=>"form-control", "style" => "width:30%;display:inherit"]) !!} &nbsp €</td>
                                 </tr>
                             </table>
                         </div>
@@ -49,14 +49,14 @@
                                     </tr>
                                 </thead>
                                 <tr>
-                                    <td>Hingeois</td>
-                                    <td>{!! Form::text("TAPhingeoisPres", $TAPhingeoisPres . ' €',["class"=>"form-control"]) !!}</td>
-                                    <td>{!! Form::text("TAPhingeoisAbs", $TAPhingeoisAbs . ' €',["class"=>"form-control"]) !!}</td>
+                                    <td style="line-height:34px">Hingeois</td>
+                                    <td style="line-height:34px">{!! Form::text("TAPhingeoisPres", $TAPhingeoisPres,["class"=>"form-control", "style" => "width:60%;display:inherit"]) !!} &nbsp €</td>
+                                    <td style="line-height:34px">{!! Form::text("TAPhingeoisAbs", $TAPhingeoisAbs,["class"=>"form-control", "style" => "width:60%;display:inherit"]) !!} &nbsp €</td>
                                 </tr>
                                 <tr>
-                                    <td>Extérieur</td>
-                                    <td>{!! Form::text("TAPextPres", $TAPextPres . ' €',["class"=>"form-control"]) !!}</td>
-                                    <td>{!! Form::text("TAPextAbs", $TAPextAbs . ' €',["class"=>"form-control"]) !!}</td>
+                                    <td style="line-height:34px">Extérieur</td>
+                                    <td style="line-height:34px">{!! Form::text("TAPextPres", $TAPextPres,["class"=>"form-control", "style" => "width:60%;display:inherit"]) !!} &nbsp €</td>
+                                    <td style="line-height:34px">{!! Form::text("TAPextAbs", $TAPextAbs,["class"=>"form-control", "style" => "width:60%;display:inherit"]) !!} &nbsp €</td>
                                 </tr>
                             </table>
                         </div>
@@ -69,10 +69,10 @@
                                     </tr>
                                 </thead>
                                 <tr>
-                                    <td>Standard</td><td>{!! Form::text("RepasStd", $RepasStd . ' €',["class"=>"form-control"]) !!}</td>
+                                    <td style="line-height:34px">Standard</td><td style="line-height:34px">{!! Form::text("RepasStd", $RepasStd,["class"=>"form-control", "style" => "width:30%;display:inherit"]) !!} &nbsp €</td>
                                 </tr>
                                 <tr>
-                                    <td>Hors délai</td><td>{!! Form::text("RepasHD", $RepasHD . ' €',["class"=>"form-control"]) !!}</td>
+                                    <td style="line-height:34px">Hors délai</td><td style="line-height:34px">{!! Form::text("RepasHD", $RepasHD,["class"=>"form-control", "style" => "width:30%;display:inherit"]) !!} &nbsp €</td>
                                 </tr>
                             </table>
                         </div>

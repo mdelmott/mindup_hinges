@@ -57,12 +57,12 @@ class GroupeController extends Controller {
 		
 		switch($action){
 			case "Ajouter" : $this->addProfil();break;
-			case "Enregistrer les modifications": return $this->update();break;
+			case "Enregistrer": return $this->update();break;
 			case "Supprimer ce groupe":  return $this->delete();break;
 			default: return $this->show();break;
 		}
 
-		return View::make("administration.scolarite.groupesSupprimer",['groupes' => Session::get('groupes_aff'), 'groupe' => Session::get('groupe'), 'eleves' => Session::get('eleves'), 'oldgroupe' => Session::get('oldgroupe')]);	
+		return View::make("administration.scolarite.groupesSupprimer",['groupes' => Session::get('groupes_aff'), 'groupe' => Session::get('groupe'), 'eleves' => Session::get('eleves'), 'oldgroupe' => Session::get('oldgroupe'), 'nom' => Session::get('nom')]);	
 	}
 
 
@@ -107,24 +107,23 @@ class GroupeController extends Controller {
 
 		$profils = Profil::selectAll();
 		
-		/* Select all the groupes and stringify profil objects to use them in select inputs */
-		if($groupes == null){
-			$groupes = Groupe::selectAll();
-			$groupes_aff = Util::stringifyObject($groupes,"other");
-		}
-
 		/* Get selected group students (If it is the first time that the function is called, we get first group's students) */
 		if($groupe_id != null){
 			$oldgroupe = $groupe_id;
+			$nom = $groupes[$groupe_id]->nom;
 			$groupe_id = $groupes[$groupe_id]->id;
 			$groupe = Profil::selectAllByGroupe($groupe_id);
 		}else{
+			$groupes = Groupe::selectAll();
+			$groupes_aff = Util::stringifyObject($groupes,"other");
 			$oldgroupe = null;
 			if(count($groupes) > 0){
 				$groupe_id = $groupes[0]->id;
+				$nom =  $groupes[0]->nom;
 				$groupe = Profil::selectAllByGroupe($groupe_id);
 			}else{
 				$groupe = [];
+				$nom = '';
 			}	
 		}
 
@@ -142,7 +141,7 @@ class GroupeController extends Controller {
 		Session::put('eleves',$eleves);
 
 		/* Show create groupe view with all needed informations */
-		return View::make("administration.scolarite.groupesSupprimer",['groupes' => $groupes_aff, 'groupe' => $groupe, 'eleves' => $eleves, 'oldgroupe' => $oldgroupe]);	
+		return View::make("administration.scolarite.groupesSupprimer",['groupes' => $groupes_aff, 'groupe' => $groupe, 'eleves' => $eleves, 'oldgroupe' => $oldgroupe, 'nom' => $nom]);	
 	
 	}
 
@@ -195,6 +194,7 @@ class GroupeController extends Controller {
 		/* Get the selected group and its students */
 		$ids = Session::get('ids');
 		$groupe = Session::get('groupe');
+		$nom = Input::get('nom');
 		$groupe_id = Input::get('groupe');
 		$groupes = Session::get('groupes');
 
@@ -206,6 +206,10 @@ class GroupeController extends Controller {
 		/* Affect the group to each student that have been got into the class */
 		foreach($groupe as $g){
 			Profil::addGroupe($g->id, $groupes[$groupe_id]->id);
+		}
+
+		if($nom != $groupes[$groupe_id]->nom){
+			Groupe::updateGroupe($groupes[$groupe_id]->id, $nom);
 		}
 
 		/* Get all students */

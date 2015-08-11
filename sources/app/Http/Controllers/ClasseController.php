@@ -62,7 +62,7 @@ class ClasseController extends Controller {
 			default: return $this->show();break;
 		}
 
-		return View::make("administration.scolarite.classesSupprimer",['classes' => Session::get('classes_aff'), 'classe' => Session::get('classe'), 'eleves' => Session::get('eleves'), 'oldclasse' => Session::get('oldclasse')]);	
+		return View::make("administration.scolarite.classesSupprimer",['classes' => Session::get('classes_aff'), 'classe' => Session::get('classe'), 'eleves' => Session::get('eleves'), 'oldclasse' => Session::get('oldclasse'), 'nom' => Session::get('nom')]);	
 	}
 
 
@@ -106,24 +106,23 @@ class ClasseController extends Controller {
 
 		$ids = [];
 
-		/* Select all the classes and stringify profil objects to use them in select inputs */
-		if($classes == null){
-			$classes = Classe::selectAll();
-			$classes_aff = Util::stringifyObject($classes,"other");
-		}
-
 		/* Get selected class students (If it is the first time that the function is called, we get first class's students) */
 		if($classe_id != null){
 			$oldclasse = $classe_id;
+			$nom = $classes[$classe_id]->nom;
 			$classe_id = $classes[$classe_id]->id;
 			$classe = Profil::selectAllByClasse($classe_id);
 		}else{
+			$classes = Classe::selectAll();
+			$classes_aff = Util::stringifyObject($classes,"other");
 			$oldclasse = null;
 			if(count($classes) > 0){
 				$classe_id = $classes[0]->id;
+				$nom =  $classes[0]->nom;
 				$classe = Profil::selectAllByClasse($classe_id);
 			}else{
 				$classe = [];
+				$nom = "";
 			}	
 		}
 
@@ -136,7 +135,7 @@ class ClasseController extends Controller {
 		Session::put('calledPage',"administration.scolarite.classesSupprimer");
 		
 		/* Show create classe view with all needed informations */
-		return View::make("administration.scolarite.classesSupprimer",['classes' => $classes_aff, 'classe' => $classe, 'eleves' => Session::get('eleves'), 'oldclasse' => $oldclasse]);	
+		return View::make("administration.scolarite.classesSupprimer",['classes' => $classes_aff, 'classe' => $classe, 'eleves' => Session::get('eleves'), 'oldclasse' => $oldclasse, 'nom' => $nom]);	
 	
 	}
 
@@ -180,9 +179,11 @@ class ClasseController extends Controller {
 
 		/* Get the selected class and its students */
 		$ids = Session::get('ids');
+		$nom = Input::get('nom');
 		$classe = Session::get('classe');
 		$classe_id = Input::get('classe');
 		$classes = Session::get('classes');
+
 
 		/* Disaffect the class to each student that have been got out of the class */
 		foreach ($ids as $id) {
@@ -192,6 +193,10 @@ class ClasseController extends Controller {
 		/* Affect the class to each student that have been got into the class */
 		foreach($classe as $c){
 			Profil::changeClasse($c->id, $classes[$classe_id]->id);
+		}
+
+		if($nom != $classes[$classe_id]->nom){
+			Classe::updateClasse($classes[$classe_id]->id, $nom);
 		}
 
 		/* Save each variable in session variable to use them in other method of the conntroller*/
@@ -293,6 +298,7 @@ class ClasseController extends Controller {
 		$classe = Session::get('classe');
 		$profils = Session::get('profils');
 		$ids = Session::get('ids');
+		$nom = Session::get('nom');
         $eleve = Profil::getProfil($id);
 
         /* Add profil id to ids to delete */
@@ -317,7 +323,7 @@ class ClasseController extends Controller {
 		Session::put('eleves',$eleves);
 		Session::put('ids',$ids);
 
-		return View::make(Session::get('calledPage'),['classes' => Session::get('classes_aff'), 'classe' => $classe, 'eleves' => $eleves, 'oldclasse' => Session::get('oldclasse'), 'nom' => Session::get('nom')]);	
+		return View::make(Session::get('calledPage'),['classes' => Session::get('classes_aff'), 'classe' => $classe, 'eleves' => $eleves, 'oldclasse' => Session::get('oldclasse'), 'nom' => $nom]);	
 	 	
 	}
 

@@ -7,7 +7,7 @@
     <script type="text/javascript" src="{{ asset("/js/bower_components/bootstrap/js/transition.js") }}"></script>
     <script type="text/javascript" src="{{ asset("/js/bower_components/bootstrap/js/collapse.js") }}"></script>
     <link rel="stylesheet" href="{{ asset("/js/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/js/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker5.css") }}" />
+    <link rel="stylesheet" href="{{ asset("/js/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker6.css") }}" />
     <script src="{{ asset("/js/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js") }}"></script>
     <script src="{{ asset("/js/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr.min.js") }}"></script>
     

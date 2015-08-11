@@ -122,11 +122,14 @@ class InscriptionCantineController extends Controller {
 		$datesToReturn = Input::get('datesToReturn');
 		$hd = Input::get('Horsdelai');
 
+
+
 		$oldeleve = $profil_id;
 		$profil_id = $profils[$profil_id]->id;
 
 		$datesToReturn = str_replace('(Paris, Madrid (heure d’été))', '', $datesToReturn);
 		$dates = explode(',',$datesToReturn);
+
 
 		if($hd == null){
 			$prix = Tarif::getTarif('RepasStd');
@@ -137,9 +140,11 @@ class InscriptionCantineController extends Controller {
 		}		
 			
 		foreach ($dates as $d) {
-			$date = date_create($d);
-			$repas_id = Repas::createRepas($date);
-			Profil::addRepas($profil_id,$repas_id,$hd,$prix);
+			if($d != ""){
+				$date = date_create($d);
+				$repas_id = Repas::createRepas($date);
+				Profil::addRepas($profil_id,$repas_id,$hd,$prix);
+			}
 		}
 
 		$repas = Profil::getRepas($profil_id);
@@ -179,12 +184,17 @@ class InscriptionCantineController extends Controller {
 		$dates = explode(',',$datesToReturn);
 
 		foreach ($dates as $d) {
-			$date = date_create($d);
-			$repas_id = Repas::getRepasId($date);
-			if($repas_id != null){
-				Profil::deleteRepas($profil_id,$repas_id);
+			if($d != ""){
+				$date = date_create($d);
+				$repas_id = Repas::getRepasId($date);
+				if($repas_id != null){
+					Profil::deleteRepas($profil_id,$repas_id);
+				}
 			}
 		}		
+
+		$repas = Profil::getRepas($profil_id);
+		$repas_hd = Profil::getRepasHD($profil_id);
 
 		$dates = [];
 		$dates_hd = [];

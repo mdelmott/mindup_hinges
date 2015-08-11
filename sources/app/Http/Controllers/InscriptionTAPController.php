@@ -129,9 +129,11 @@ class InscriptionTAPController extends Controller {
 		}		
 			
 		foreach ($dates as $d) {
-			$date = date_create($d);
-			$TAP_id = Tap::createTAP($date);
-			Profil::addTAP($profil_id,$TAP_id,$prix);
+			if($d != ''){
+				$date = date_create($d);
+				$TAP_id = Tap::createTAP($date);
+				Profil::addTAP($profil_id,$TAP_id,$prix);
+			}
 		}
 
 		$TAP = Profil::getTAP($profil_id);
@@ -164,10 +166,12 @@ class InscriptionTAPController extends Controller {
 		$dates = explode(',',$datesToReturn);
 
 		foreach ($dates as $d) {
-			$date = date_create($d);
-			$TAP_id = Tap::getTAPId($date);
-			if($TAP_id != null){
-				Profil::deleteTAP($profil_id,$TAP_id);
+			if($d != ''){
+				$date = date_create($d);
+				$TAP_id = Tap::getTAPId($date);
+				if($TAP_id != null){
+					Profil::deleteTAP($profil_id,$TAP_id);
+				}
 			}
 		}		
 

@@ -52,17 +52,17 @@ class TarifController extends Controller {
 
 	public function update(){		
 		
-		$Garderieav8h15 = str_replace(' €', '', Input::get('Garderieav8h15'));
-		$Garderieap8h15 = str_replace(' €', '', Input::get('Garderieap8h15'));
-		$Garderie1h = str_replace(' €', '', Input::get('Garderie1h'));
-		$Garderie2h = str_replace(' €', '', Input::get('Garderie2h'));
-		$Garderie3h = str_replace(' €', '', Input::get('Garderie3h'));
-		$TAPhingeoisPres = str_replace(' €', '', Input::get('TAPhingeoisPres'));
-		$TAPhingeoisAbs = str_replace(' €', '', Input::get('TAPhingeoisAbs'));
-		$TAPextPres = str_replace(' €', '', Input::get('TAPextPres'));
-		$TAPextAbs = str_replace(' €', '', Input::get('TAPextAbs'));
-		$RepasStd = str_replace(' €', '', Input::get('RepasStd'));
-		$RepasHD = str_replace(' €', '', Input::get('RepasHD'));
+		$Garderieav8h15 = Input::get('Garderieav8h15');
+		$Garderieap8h15 = Input::get('Garderieap8h15');
+		$Garderie1h = Input::get('Garderie1h');
+		$Garderie2h = Input::get('Garderie2h');
+		$Garderie3h = Input::get('Garderie3h');
+		$TAPhingeoisPres = Input::get('TAPhingeoisPres');
+		$TAPhingeoisAbs = Input::get('TAPhingeoisAbs');
+		$TAPextPres = Input::get('TAPextPres');
+		$TAPextAbs = Input::get('TAPextAbs');
+		$RepasStd = Input::get('RepasStd');
+		$RepasHD = Input::get('RepasHD');
 
 
 		Tarif::updateTarif('Garderieav8h15',$Garderieav8h15);

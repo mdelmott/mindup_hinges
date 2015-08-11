@@ -16,7 +16,8 @@
 
         <div class="col-md-6 col-sm-7 col-md-offset-1">
             {!! Form::open(['url' => '/Scolarite/Classes/UpdateOrDelete', 'name' => 'form1']) !!}
-                <div class="col-md-6 col-sm-5 col-md-offset-3 col-sm-offset-3 margin-top-15">
+                <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-1">{!! Form::text('nom', $nom, ['class' => "form-control", 'placeholder' => "Nom de la classe", "style" => "text-align:center"]) !!}</div>
+                <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-1">
                     {!! Form::select('classe',$classes, $oldclasse, ['onChange' => 'document.form1.submit()','class' => 'form-control']) !!}
                 </div>
                 <table class="table table-striped margin-top-10">

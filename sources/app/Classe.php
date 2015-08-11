@@ -42,6 +42,10 @@ class Classe extends Model {
 		return DB::table("classe")->where('id',$id)->delete();
 	}
 
+	public static function updateClasse($id,$nom){
+		DB::table("classe")->where('id',$id)->update(['nom' => $nom]);
+	}
+
 	public static function getAllStudentsCafet($id, $d){
 		$table1 = DB::table("profil")->join('repas_profil', 'profil.id', '=', 'repas_profil.id_profil')->where(['profil.classe_id' => $id, 'repas_profil.absent' => -1])->get();
 		$date = date_format($d,'Y-m-d');

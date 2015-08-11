@@ -70,7 +70,7 @@ Route::get('/Facturation/Cantine',['as'=>'Facturation.Cantine', 'uses' => 'Factu
 Route::post('/Facturation/Cantine',['as'=>'Facturation.Cantine', 'uses' => 'FacturationCantineController@index', 'middleware' => 'auth']);
 
 Route::get('/Facturation/Garderie',['as'=>'Facturation.Garderie', 'uses' => 'FacturationGarderieController@index', 'middleware' => 'auth']);
-Route::post('/Facturation/Garderie',['as'=>'Facturation.Garderie', 'uses' => 'tFacturationGarderieController@index', 'middleware' => 'auth']);
+Route::post('/Facturation/Garderie',['as'=>'Facturation.Garderie', 'uses' => 'FacturationGarderieController@index', 'middleware' => 'auth']);
 
 Route::get('/Facturation/TAP',['as'=>'Facturation.TAP', 'uses' => 'FacturationTAPController@index', 'middleware' => 'auth']);
 Route::post('/Facturation/TAP',['as'=>'Facturation.TAP', 'uses' => 'FacturationTAPController@index', 'middleware' => 'auth']);

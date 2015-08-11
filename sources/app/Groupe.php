@@ -44,6 +44,10 @@ class Groupe extends Model {
 		return DB::table("groupe")->where('type',1)->get();
 	}
 
+	public static function updateGroupe($id,$nom){
+		DB::table("groupe")->where('id',$id)->update(['nom' => $nom]);
+	}
+
 	public static function deleteGroupe($id){
 		DB::table("groupe_profil")->where('groupe_id',$id)->delete();
 		return DB::table("groupe")->where('id',$id)->delete();

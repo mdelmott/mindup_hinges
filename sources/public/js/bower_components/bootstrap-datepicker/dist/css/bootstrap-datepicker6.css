@@ -51,7 +51,7 @@
 }
 
 .datepicker table tr td.affected.active.active {
-  color : darkorange;
+  color : #e5acac;
   cursor: pointer;
   background: white;
 }
@@ -64,13 +64,13 @@
 }
 
 .datepicker table tr td.horsDelai, .datepicker table tr td.horsDelai:hover {
-  color: chocolate;
+  color: darkorange;
   cursor: pointer;
   background: white;
 }
 
 .datepicker table tr td.horsDelai.active.active {
-  color : darkorange;
+  color : #edc697;
   cursor: pointer;
   background: white;
 }

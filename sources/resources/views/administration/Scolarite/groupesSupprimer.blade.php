@@ -16,7 +16,8 @@
 
         <div class="col-md-6 col-sm-7 col-md-offset-1 margin-top-10">
             {!! Form::open(['url' => '/Scolarite/Groupes/UpdateOrDelete', 'name' => 'form1']) !!}
-            <div class="col-md-6 col-sm-5 col-md-offset-3 col-sm-offset-3">
+            <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-1">{!! Form::text('nom', $nom, ['class' => "form-control", 'placeholder' => "Nom du groupe", "style" => "text-align:center"]) !!}</div>
+            <div class="col-md-4 col-sm-5 col-xs-6 col-md-offset-1">
                 {!! Form::select('groupe',$groupes, $oldgroupe, ['onChange' => 'document.form1.submit()','class' => 'form-control']) !!}
             </div>
             <table class="table table-striped margin-top-10">
@@ -38,7 +39,7 @@
 
             </br></br>    
             <div class="col-md-5 col-sm-6 col-xs-7 col-md-offset-1">{!! Form::submit('Supprimer ce groupe', ['name' =>'action','class' => 'btn btn-primary form-control'])!!}</div>
-            <div class="col-md-6 col-sm-5 col-xs-5 ">{!! Form::submit('Enregistrer les modifications', ['name' =>'action','class' => 'btn btn-primary form-control'])!!}</div>
+            <div class="col-md-6 col-sm-5 col-xs-5 ">{!! Form::submit('Enregistrer', ['name' =>'action','class' => 'btn btn-primary form-control'])!!}</div>
             {!! Form::close() !!}
         </div>
         <div class="clearfix"></div>
