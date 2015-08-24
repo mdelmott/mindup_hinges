@@ -18,7 +18,7 @@
 
 
             {!! Form::open(['url' => '/Scolarite/Classes/Create']) !!}
-                    <div class="col-md-8 col-md-offset-2 margin-top-10">{!! Form::text('nom', $nom, ['class' => "form-control", 'placeholder' => "Nom de la classe", "style" => "text-align:center"]) !!}</div>
+                    <div class="col-md-8 col-md-offset-2 margin-top-10">{!! Form::text('nom', $nom, ['required' => true, 'class' => "form-control", 'placeholder' => "Nom de la classe", "style" => "text-align:center"]) !!}</div>
                     <table class="table table-striped margin-top-15">
                         <thead>
                         <tr><th>Nom</th><th>Prenom</th></tr>

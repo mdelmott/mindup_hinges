@@ -45,6 +45,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	public static function getUsers(){
-		return $users = DB::table("users")->where('login','<>','admin')->get();
+		return $users = DB::table("users")->where('login','<>','Admin')->get();
 	}	
 }

@@ -19,7 +19,7 @@
 
             {!! Form::open(['url' => '/Scolarite/Groupes/Create']) !!}
             <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-1">
-                {!! Form::text('nom', $nom, ['class' => "form-control", 'placeholder' => "Nom du groupe"]) !!}
+                {!! Form::text('nom', $nom, ['required' => true, 'class' => "form-control", 'placeholder' => "Nom du groupe"]) !!}
             </div>
             <div class="col-md-4 col-sm-5 col-xs-6 col-md-offset-1">
                 {!! Form::select('type', ["TAP","GARDERIE"], $type, ['class' => 'form-control']) !!}

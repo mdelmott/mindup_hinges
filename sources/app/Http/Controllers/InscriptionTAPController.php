@@ -6,7 +6,7 @@ use View;
 
 use App\Profil;
 use App\Util;
-use App\Tap;
+use App\TAP;
 use App\Adresse;
 use App\Tarif;
 
