@@ -79,10 +79,16 @@ class CantineController extends Controller {
 		$classe = Session::get('classe');
 		$oldClasse = Session::get('oldClasse');
 
-		if($presence == 'Present'){
-			Profil::presenceCafet($id,0);
+		if(Profil::getRepasProfil($id)[0]->hors_delai == 0){
+			$prix = Tarif::getTarif('RepasStd');
 		}else{
-			Profil::presenceCafet($id,1);
+			$prix = Tarif::getTarif('RepasHD');
+		}
+
+		if($presence == 'Present'){
+			Profil::presenceCafet($id,0,$prix);
+		}else{
+			Profil::presenceCafet($id,1,$prix);
 		}
 
 		$classe  = Util::diff($classe,$id);

@@ -159,12 +159,17 @@ class GroupeController extends Controller {
 		$nom = Input::get('nom');
 		$type = Input::get('type');
 
-		/* Creation of the group in group table with group's name and type */ 
-		$groupe_id = Groupe::createGroupe($nom,$type);
+		$exist = Groupe::verifGroupe($nom);
 
-		/* Affect group for all the students */ 
-		foreach($elevesGroupe as $eg){
-			Profil::addGroupe($eg->id,$groupe_id);
+		if($exist == 0){
+
+			/* Creation of the group in group table with group's name and type */ 
+			$groupe_id = Groupe::createGroupe($nom,$type);
+
+			/* Affect group for all the students */ 
+			foreach($elevesGroupe as $eg){
+				Profil::addGroupe($eg->id,$groupe_id);
+			}
 		}
 
 		/* Get all students */
@@ -198,18 +203,21 @@ class GroupeController extends Controller {
 		$groupe_id = Input::get('groupe');
 		$groupes = Session::get('groupes');
 
-		/* Disaffect the group to each student that have been got out of the class */
-		foreach ($ids as $id) {
-			Profil::deleteGroupe($id,$groupes[$groupe_id]->id);
-		}
+		if($groupe_id != null){
+			
+			/* Disaffect the group to each student that have been got out of the class */
+			foreach ($ids as $id) {
+				Profil::deleteGroupe($id,$groupes[$groupe_id]->id);
+			}
 
-		/* Affect the group to each student that have been got into the class */
-		foreach($groupe as $g){
-			Profil::addGroupe($g->id, $groupes[$groupe_id]->id);
-		}
+			/* Affect the group to each student that have been got into the class */
+			foreach($groupe as $g){
+				Profil::addGroupe($g->id, $groupes[$groupe_id]->id);
+			}
 
-		if($nom != $groupes[$groupe_id]->nom){
-			Groupe::updateGroupe($groupes[$groupe_id]->id, $nom);
+			if($nom != $groupes[$groupe_id]->nom){
+				Groupe::updateGroupe($groupes[$groupe_id]->id, $nom);
+			}
 		}
 
 		/* Get all students */
@@ -242,10 +250,13 @@ class GroupeController extends Controller {
 		/* Get the selected group */
 		$groupe_id = Input::get('groupe');
 		$groupes = Session::get('groupes');
-		$groupe = $groupes[$groupe_id];
+		
+		if($groupe_id != null){
+			$groupe = $groupes[$groupe_id];
 
-		/* Delete group */
-		Groupe::deleteGroupe($groupe->id);
+			/* Delete group */
+			Groupe::deleteGroupe($groupe->id);
+		}
 
 		/* Get all students */
 		$profils = Profil::selectAll();

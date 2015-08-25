@@ -134,24 +134,28 @@ class ProfilController extends Controller {
 		$ville = Input::get('ville');
 		$cp = Input::get('cp');
 		$remarques = Input::get('remarques');
-		
-		/* Create profil's address */
-		
-		if($adresse != "" || $ville != "" || $cp != ""){
-			if(strpos($adresse,',') == false){
-				$rue = $adresse;
-				$numero = null;
-			}else{
-				list($numero, $rue) = explode(',',$adresse);	
-			}
-			$adresse_id = Adresse::createAdresse($numero, $rue, $ville, $cp);	
-		}else{
-			$adresse_id = null;
-		}
 
-		/* Create profil */
+		$exist = Profil::verifProfil($nom,$prenom);
 		
-		Profil::createProfil($nom, $prenom, $tel, $adresse_id, $remarques);
+		if($exist == 0){
+			/* Create profil's address */
+		
+			if($adresse != "" || $ville != "" || $cp != ""){
+				if(strpos($adresse,',') == false){
+					$rue = $adresse;
+					$numero = null;
+				}else{
+					list($numero, $rue) = explode(',',$adresse);	
+				}
+				$adresse_id = Adresse::createAdresse($numero, $rue, $ville, $cp);	
+			}else{
+				$adresse_id = null;
+			}
+
+			/* Create profil */
+		
+			Profil::createProfil($nom, $prenom, $tel, $adresse_id, $remarques);
+		}
 
 		return view("administration.scolarite.profils"); 
 	}

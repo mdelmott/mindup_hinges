@@ -32,6 +32,10 @@ class Groupe extends Model {
 		return DB::table("groupe")->insertGetId(['nom'=>$nom, 'type'=>$type]);
 	}
 
+	public static function verifGroupe($nom){
+		return DB::table("groupe")->where("nom", $nom)->count();
+	}
+
 	public static function selectAll(){
 		return DB::table("groupe")->get();
 	}

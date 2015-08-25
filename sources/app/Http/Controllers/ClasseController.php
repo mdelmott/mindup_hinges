@@ -151,18 +151,28 @@ class ClasseController extends Controller {
 		/* Get the students and the name of the class*/
 		$elevesClasse = Session::get('classe');
 		$eleves = Session::get('eleves');
+		$profils = Session::get('profils');
 		$nom = Input::get('nom');
 
-		/* Creation of the class in class table with class's name */ 
-		$classe_id = Classe::createClasse($nom);
+		$exist = Classe::verifClasse($nom);
 
-		/* Affect class for all the students */ 
-		foreach($elevesClasse as $ec){
-			Profil::changeClasse($ec->id,$classe_id);
+		if($exist == 0){
+			/* Creation of the class in class table with class's name */ 
+			$classe_id = Classe::createClasse($nom);
+
+			/* Affect class for all the students */ 
+			foreach($elevesClasse as $ec){
+				Profil::changeClasse($ec->id,$classe_id);
+			}
+
+		}else{
+			$profils = Profil::selectAllByClasse(null);
+			$eleves = Util::stringifyObject($profils,"profil");
 		}
 
 		/* Save each variable in session variable to use them in other method of the conntroller*/
 		Session::put('eleves',$eleves);
+		Session::put('profils',$profils);
 		Session::put('classe', []);
 		Session::put('nom',null);
 		Session::put('classes',null);
@@ -184,19 +194,22 @@ class ClasseController extends Controller {
 		$classe_id = Input::get('classe');
 		$classes = Session::get('classes');
 
+		if($classe_id != null){
 
-		/* Disaffect the class to each student that have been got out of the class */
-		foreach ($ids as $id) {
-			Profil::changeClasse($id,null);
-		}
+			/* Disaffect the class to each student that have been got out of the class */
+			foreach ($ids as $id) {
+				Profil::changeClasse($id,null);
+			}
 
-		/* Affect the class to each student that have been got into the class */
-		foreach($classe as $c){
-			Profil::changeClasse($c->id, $classes[$classe_id]->id);
-		}
+			/* Affect the class to each student that have been got into the class */
+			foreach($classe as $c){
+				Profil::changeClasse($c->id, $classes[$classe_id]->id);
+			}
 
-		if($nom != $classes[$classe_id]->nom){
-			Classe::updateClasse($classes[$classe_id]->id, $nom);
+			if($nom != $classes[$classe_id]->nom){
+				Classe::updateClasse($classes[$classe_id]->id, $nom);
+			}
+
 		}
 
 		/* Save each variable in session variable to use them in other method of the conntroller*/
@@ -222,23 +235,27 @@ class ClasseController extends Controller {
 		$classe_id = Input::get('classe');
 		$classes = Session::get('classes');
 		$profils = Session::get('profils');
-		$classe = $classes[$classe_id];
 
-		/* Select all the students of selected class */
-		$elevesSansClasse = Profil::selectAllByClasse($classe->id);
+		if($classe_id != null){
+			$classe = $classes[$classe_id];
 
-		/* Disaffect the class to each student of this class and put them on selection input */
-		foreach ($elevesSansClasse as $eleve) {
-		 	Profil::changeClasse($eleve->id,null);
-		 	array_push($profils,$eleve);
+			/* Select all the students of selected class */
+			$elevesSansClasse = Profil::selectAllByClasse($classe->id);
+
+			/* Disaffect the class to each student of this class and put them on selection input */
+			foreach ($elevesSansClasse as $eleve) {
+		 		Profil::changeClasse($eleve->id,null);
+		 		array_push($profils,$eleve);
+			}
+
+			/* Delete selected class */
+			Classe::deleteClasse($classe->id);
 		}
 
 		/* Stringify profil objects to use them in select inputs */ 
 		$eleves = Util::stringifyObject($profils,"profil");		
 
-		/* Delete selected class */
-		Classe::deleteClasse($classe->id);
-
+		
 		/* Save each variable in session variable to use them in other method of the conntroller*/
 		Session::put('classes',null);
 		Session::put('classe', []);

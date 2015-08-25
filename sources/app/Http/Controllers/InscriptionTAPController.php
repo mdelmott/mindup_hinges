@@ -110,29 +110,18 @@ class InscriptionTAPController extends Controller {
 		$profil_id  = Input::get('eleve');
 		$datesToReturn = Input::get('datesToReturn');
 
-		$adresse_id = $profils[$profil_id]->adresse_id;
 		$oldeleve = $profil_id;
 		$profil_id = $profils[$profil_id]->id;
 
 		$datesToReturn = str_replace('(Paris, Madrid (heure d’été))', '', $datesToReturn);
 		$dates = explode(',',$datesToReturn);
 
-		$adresse = Adresse::getAdresse($adresse_id);
-		if(count($adresse)>0){
-			$ville = $adresse[0]->ville;
-		}
-
-		if($ville == "Hinges"){
-			$prix = Tarif::getTarif("TAPhingeoisPres");
-		}else{
-			$prix = Tarif::getTarif("TAPextPres");
-		}		
 			
 		foreach ($dates as $d) {
 			if($d != ''){
 				$date = date_create($d);
 				$TAP_id = Tap::createTAP($date);
-				Profil::addTAP($profil_id,$TAP_id,$prix);
+				Profil::addTAP($profil_id,$TAP_id,0);
 			}
 		}
 

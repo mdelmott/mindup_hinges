@@ -79,20 +79,36 @@ class TAPController extends Controller {
 		$groupe = Session::get('groupe');
 		$oldGroupe = Session::get('oldGroupe');
 
-		if($presence == 'Present'){
-			Profil::presenceTap($id,null);
-		}else{
-			$adresse = Profil::getAdresseFromTapProfilTable($id);
-			if(count($adresse)>0){
-				$ville = $adresse[0]->ville;
-				if($ville == "Hinges"){
-					$prix = Tarif::getTarif('TAPhingeoisAbs');
+		$absence = 0;
+		$adresse = Profil::getAdresseFromTapProfilTable($id);
+		if(count($adresse)>0){
+			$ville = $adresse[0]->ville;
+			if($ville == "Hinges"){
+				if($presence == "Present"){
+					$prix = Tarif::getTarif('TAPhingeoisPres');
 				}else{
-					$prix = Tarif::getTarif('TAPextAbs'); 
+					$prix = Tarif::getTarif("TAPhingeoisAbs");
+					$absence = 1;
+				}
+			}else{
+				if($presence == "Present"){
+					$prix = Tarif::getTarif('TAPextPres'); 
+				}else{
+					$prix = Tarif::getTarif("TAPextAbs");
+					$absence = 1;
 				}
 			}
-			Profil::presenceTAP($id,$prix);
+		}else{
+			if($presence == "Present"){
+				$prix = Tarif::getTarif('TAPextPres'); 
+			}else{
+				$prix = Tarif::getTarif("TAPextAbs");
+				$absence = 1;	
+			}
 		}
+
+
+		Profil::presenceTAP($id,$absence,$prix);
 
 		$groupe = Util::diff($groupe,$id);
 		Session::put('groupe',$groupe);

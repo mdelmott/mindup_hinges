@@ -130,12 +130,9 @@ class InscriptionCantineController extends Controller {
 		$datesToReturn = str_replace('(Paris, Madrid (heure d’été))', '', $datesToReturn);
 		$dates = explode(',',$datesToReturn);
 
-
 		if($hd == null){
-			$prix = Tarif::getTarif('RepasStd');
 			$hd = 0;
 		}else{
-			$prix = Tarif::getTarif('RepasHD');
 			$hd = 1;
 		}		
 			
@@ -143,7 +140,7 @@ class InscriptionCantineController extends Controller {
 			if($d != ""){
 				$date = date_create($d);
 				$repas_id = Repas::createRepas($date);
-				Profil::addRepas($profil_id,$repas_id,$hd,$prix);
+				Profil::addRepas($profil_id,$repas_id,$hd,0);
 			}
 		}
 

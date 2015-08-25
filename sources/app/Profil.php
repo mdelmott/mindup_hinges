@@ -55,6 +55,10 @@ class Profil extends Model {
 		return DB::table("profil")->where("id",$id)->get();
 	}
 
+	public static function verifProfil($nom,$prenom){
+		return DB::table("profil")->where(["nom"=>$nom, "prenom" => $prenom])->count();
+	}
+
 	public static function updateProfil($id, $nom, $prenom, $tel, $remarques){
 		DB::table("profil")->where('id',$id)->update(['nom' => $nom, 'prenom' => $prenom, 'tel' => $tel, 'remarques' => $remarques]);
 		return DB::table("profil")->where('id',$id)->get();
@@ -106,8 +110,12 @@ class Profil extends Model {
 		DB::table("repas_profil")->where(['id_profil' => $id, 'id_repas' => $repas_id])->delete();
 	}
 
-	public static function presenceCafet($id,$presence){
-		DB::table('repas_profil')->where('id',$id)->update(['absent' => $presence]);
+	public static function getRepasProfil($id){
+		return DB::table('repas_profil')->where('id',$id)->get();
+	}
+
+	public static function presenceCafet($id,$presence,$prix){
+		DB::table('repas_profil')->where('id',$id)->update(['absent' => $presence, 'prix' => $prix]);
 	}
 
 	public static function getTAP($id){
@@ -125,12 +133,8 @@ class Profil extends Model {
 		DB::table("tap_profil")->where(['id_profil' => $id, 'id_tap' => $tap_id])->delete();
 	}
 
-	public static function presenceTap($id,$prix){
-		if($prix == null){
-			DB::table('tap_profil')->where('id',$id)->update(['absent' => 0]);
-		}else{
-			DB::table('tap_profil')->where('id',$id)->update(['absent' => 1, 'prix' => $prix]);
-		}
+	public static function presenceTap($id,$absence,$prix){
+		DB::table('tap_profil')->where('id',$id)->update(['absent' => $absence, 'prix' => $prix]);
 	}
 
 	public static function getAdresseFromTapProfilTable($tap_profil_id){

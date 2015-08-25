@@ -34,6 +34,10 @@ class Classe extends Model {
 		return DB::table("classe")->insertGetId(['nom'=>$nom]);
 	}
 
+	public static function verifClasse($nom){
+		return DB::table("classe")->where("nom", $nom)->count();
+	}
+
 	public static function selectAll(){
 		return DB::table("classe")->get();
 	}
