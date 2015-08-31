@@ -47,8 +47,6 @@
                             </tr>
                             </thead>
                             {!! HTML::showEspacesTable($classe,'Cantine') !!}
-                        </table>
-
 
                     {!! Form::close() !!}
                 </div>

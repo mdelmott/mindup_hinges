@@ -48,7 +48,6 @@ use Carbon\Carbon;
                         </tr>
                         </thead>
                         {!! HTML::showEspacesTable($groupe,'TAP') !!}
-                    </table>
                     {!! Form::close() !!}
                 </div>
                 <div class="clearfix"></div>

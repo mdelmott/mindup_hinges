@@ -38,19 +38,24 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 	{
 		HtmlBuilder::macro('showEspacesTable', function($table, $type)
 		{
-			$show = "";
-			foreach ($table as $t) {
-				$show = $show . '<tr><td>
-				<div class="col-md-3 col-sm-2">
-					<span class="glyphicon glyphicon-question-sign remarque" role="button" tabindex="0" data-trigger="focus" data-toggle="popover" title="Remarques : '. $t['profil']->nom . ' ' . $t['profil']->prenom .'" data-content="'. $t['profil']->remarques .'" aria-hidden="true" onClick="popover();" data-original-title="Remarques : '. $t['profil']->nom . ' ' . $t['profil']->prenom .'"></span> 	
-			    </div></td>
-				<td>' . $t['profil']->nom . '</td><td>' . $t['profil']->prenom . '</td><td>
-				<div class="col-md-5 col-sm-5">
-					<a href ="/mindup_hinges/sources/public/'. $type .'/Check/'. $t['id'] .'/Present"><input type="button" value="Present"  class="btn btn-primary form-control"></a>
-				</div>
-				<div class="col-md-5 col-sm-5">
-					<a href ="/mindup_hinges/sources/public/'. $type .'/Check/'. $t['id'] .'/Absent"><input type="button" value="Absent" class="btn btn-primary form-control"></a></td></tr>
-				</div>';
+			if(count($table) == 0){
+				$show = '</table><b>Aucun élève inscrit pour ce jour</b>';
+			}else{
+				$show = "";
+				foreach ($table as $t) {
+					$show = $show . '<tr><td>
+					<div class="col-md-3 col-sm-2">
+						<span class="glyphicon glyphicon-question-sign remarque" role="button" tabindex="0" data-trigger="focus" data-toggle="popover" title="Remarques : '. $t['profil']->nom . ' ' . $t['profil']->prenom .'" data-content="'. $t['profil']->remarques .'" aria-hidden="true" onClick="popover();" data-original-title="Remarques : '. $t['profil']->nom . ' ' . $t['profil']->prenom .'"></span> 	
+			    	</div></td>
+					<td>' . $t['profil']->nom . '</td><td>' . $t['profil']->prenom . '</td><td>
+					<div class="col-md-5 col-sm-5">
+						<a href ="/mindup_hinges/sources/public/'. $type .'/Check/'. $t['id'] .'/Present"><input type="button" value="Present"  class="btn btn-primary form-control"></a>
+					</div>
+					<div class="col-md-5 col-sm-5">
+						<a href ="/mindup_hinges/sources/public/'. $type .'/Check/'. $t['id'] .'/Absent"><input type="button" value="Absent" class="btn btn-primary form-control"></a>
+					</div></td></tr>';
+				}
+				$show = $show . '</table>';
 			}
 			return $show;
 		});		
