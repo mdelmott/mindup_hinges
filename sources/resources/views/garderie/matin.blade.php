@@ -65,7 +65,7 @@
                             data: { valeur : $(this).val(), groupe: $('select[name="gar_group"]').val(), horaire: $(this).text(), nom: $(this).attr('nom'), prenom: $(this).attr('prenom') },
                             url: '{{ route("AjaxAjoutHoraire") }}',
                             success: function(data) {
-                               alert('Enfant Pointé !');
+                                ChargementEleve();
                             }
                         });
                     });
