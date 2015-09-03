@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/previsionPrint.css') }}" media="print" />
     <div class="container">
         <div class="row">
             <div class="jumbotron">
