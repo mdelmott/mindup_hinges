@@ -45,7 +45,7 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 				foreach ($table as $t) {
 					$show = $show . '<tr><td>
 					<div class="col-md-3 col-sm-2">
-						<span class="glyphicon glyphicon-question-sign remarque" role="button" tabindex="0" data-trigger="focus" data-toggle="popover" title="Remarques : '. $t['profil']->nom . ' ' . $t['profil']->prenom .'" data-content="'. $t['profil']->remarques .'" aria-hidden="true" onClick="popover();" data-original-title="Remarques : '. $t['profil']->nom . ' ' . $t['profil']->prenom .'"></span> 	
+						<span class="glyphicon glyphicon-question-sign remarque" role="button" tabindex="0" data-trigger="focus" data-toggle="popover" title="Remarques :" data-content="'. $t['profil']->remarques .'" aria-hidden="true" onClick="popover();" data-original-title="Remarques : '. $t['profil']->nom . ' ' . $t['profil']->prenom .'"></span>
 			    	</div></td>
 					<td>' . $t['profil']->nom . '</td><td>' . $t['profil']->prenom . '</td><td>
 					<div class="col-md-5 col-sm-5">
