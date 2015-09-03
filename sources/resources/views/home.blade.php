@@ -9,6 +9,8 @@
 				Choisissez le secteur que vous souhaitez administrer !
 			</p>
 
+			<span style="text-align:right;"><a  href="{{ url('/auth/logout') }}">Déconnexion</a></span>
+
 			<h2> Administation </h2>
 			<div class="col-md-10 col-md-offset-1">
 				<div class="btn-group btn-group-justified" role="group" aria-label="BoutonAccueil">
