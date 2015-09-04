@@ -65,7 +65,7 @@
                 <div class="col-md-10 col-sm-6 col-xs-10 col-xs-offset-1 col-md-offset-2 col-sm-offset-3 margin-top-15">
                     {!! Form::submit('Ajouter un repas', ['name'=>'action', 'class' => 'btn btn-primary col-md-5 col-xs-10 col-xs-offset-1'])!!}
                     <div class="col-md-7 col-sm-12 col-xs-10 col-xs-offset-1 margin-top-5 ">
-                        {!! Form::radio("Horsdelai", null, null, ['class'=>"col-md-1"]) !!} {!! Form::label('Horsdelai', 'Hors delai') !!}
+                        {!! Form::checkbox("Horsdelai", null, null, ['class'=>"col-md-1"]) !!} {!! Form::label('Horsdelai', 'Hors delai') !!}
                     </div>
                     <div class="clearfix"></div>
                     {!! Form::submit('Supprimer un repas', ['name'=>'action', 'class' => 'btn btn-primary col-md-7 col-xs-10 col-xs-offset-1 margin-top-15'])!!}

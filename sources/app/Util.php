@@ -95,11 +95,11 @@ class Util{
 		$date = Carbon::now();
 		$month =  $date->formatLocalized('%B');
 		array_push($months,$date->formatLocalized('%B %Y'));
-		$date->addMonths(1);
+		$date->subMonths(1);
 
 		while($date->formatLocalized('%B') != $month){
 			array_push($months,$date->formatLocalized('%B %Y'));
-			$date->addMonths(1);			
+			$date->subMonths(1);			
 		} 
 
 		return $months;
