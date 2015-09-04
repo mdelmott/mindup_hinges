@@ -4,11 +4,14 @@
 <div class="container vertical-center">
 	<div class="row">
 		<div class="jumbotron">
-			<h1>Bienvenue ! </h1>
-			<p>
-				Choisissez le secteur que vous souhaitez administrer !
-			</p>
+			<div class="row">
+				<h1>Bienvenue ! </h1>
+				<p class="col-md-10">
+					Choisissez le secteur que vous souhaitez administrer !
+				</p>
 
+				<a  href="{{ url('/auth/logout') }}" class="col-md-2 btn btn-default" role="button">Déconnexion</a>
+			</div>
 			<h2> Administation </h2>
 			<div class="col-md-10 col-md-offset-1">
 				<div class="btn-group btn-group-justified" role="group" aria-label="BoutonAccueil">

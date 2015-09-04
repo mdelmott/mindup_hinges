@@ -19,6 +19,7 @@
                     <div class="col-md-3 col-sm-4 col-xs-4 col-md-offset-4 col-sm-offset-1">
                         <div class="btn-group btn-group-justified" role="group" aria-label="ButtonRetour">
                             <a href="{{ route("administration") }}" class="btn btn-default" role="button">Retour</a>
+                            <a  href="{{ url('/auth/logout') }}" class="btn btn-default" role="button">Déconnexion</a>
                         </div>
                     </div>
                     <div class="clearfix"></div>

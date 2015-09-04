@@ -24,9 +24,8 @@ use Carbon\Carbon;
                     html = "";
                     if(data.length > 0){
                         for(i=0; i<data.length;i++){
-
                             html += "<tr>";
-                            html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques : " + data[i].nom + " " + data[i].prenom + " ' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
+                            html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques : ' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
                             html += "</tr>";
                         }
                     }
@@ -60,6 +59,7 @@ use Carbon\Carbon;
                     <div class="col-md-3 col-sm-4 col-xs-4 col-md-offset-9 col-sm-offset-8">
                         <div class="btn-group btn-group-justified" role="group" aria-label="ButtonRetour">
                             <a href="{{ route("administration") }}" class="btn btn-default" role="button">Retour</a>
+                            <a  href="{{ url('/auth/logout') }}" class="btn btn-default" role="button">Déconnexion</a>
                         </div>
 
                         <div class="margin-top-15">

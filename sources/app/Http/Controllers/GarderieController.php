@@ -19,7 +19,7 @@ class GarderieController extends Controller {
 	{
 		DB::setFetchMode(PDO::FETCH_ASSOC);
 		$group_gar = DB::table("groupe")->select("*")
-			->where("type","=",0)
+			->where("type","=",1)
 			->get();
 
 		DB::setFetchMode(PDO::FETCH_CLASS);

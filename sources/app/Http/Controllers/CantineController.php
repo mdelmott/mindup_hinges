@@ -36,7 +36,6 @@ class CantineController extends Controller {
 	 */
 
 	public function index(){
-		
 		$classes = Session::get('classes');
 		$classes_aff = Session::get('classes_aff');
 		$date = Session::get('date');

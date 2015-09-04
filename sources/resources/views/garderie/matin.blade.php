@@ -24,7 +24,7 @@
                         for(i=0; i<data.length;i++){
 
                             html += "<tr>";
-                            html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques : " + data[i].nom + " " + data[i].prenom + " ' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
+                            html += "<td><span class=\"glyphicon glyphicon-question-sign remarque\" role=\"button\" tabindex=\"0\" data-trigger=\"focus\"  data-toggle=\"popover\" title='Remarques :' data-content=\""+ data[i].remarques +" \" aria-hidden=\"true\"></span> </td><td>" + data[i].nom +"</td><td>"+data[i].prenom + "</td>";
                             html += "<td>";
                             html += "<div class=\"col-md-5 col-sm-5\">";
                             html += '<button type="button" class="button form-control btn-xs" nom="'+data[i].nom+'" ville="'+data[i].ville+'" prenom="'+data[i].prenom+'">Avant 8h15</button>';
@@ -65,7 +65,7 @@
                             data: { valeur : $(this).val(), groupe: $('select[name="gar_group"]').val(), horaire: $(this).text(), nom: $(this).attr('nom'), prenom: $(this).attr('prenom') },
                             url: '{{ route("AjaxAjoutHoraire") }}',
                             success: function(data) {
-                               alert('Enfant Pointé !');
+                                ChargementEleve();
                             }
                         });
                     });

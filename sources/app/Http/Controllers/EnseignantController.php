@@ -17,8 +17,7 @@ class EnseignantController extends Controller {
 	public function index()
 	{
 		DB::setFetchMode(PDO::FETCH_ASSOC);
-		$groupe_class = DB::table("groupe")->select("*")
-			->where("type","=", 1)
+		$groupe_class = DB::table("classe")->select("*")
 			->get();
 		DB::setFetchMode(PDO::FETCH_CLASS);
 
@@ -29,7 +28,7 @@ class EnseignantController extends Controller {
 		if(isset($_GET['classe'])){
 			DB::setFetchMode(PDO::FETCH_ASSOC);
 
-			$classe_profil = DB::select("SELECT * FROM profil WHERE id in (SELECT DISTINCT profil_id FROM groupe_profil WHERE groupe_id = ".$_GET['classe'].")");
+			$classe_profil = DB::select("SELECT * FROM profil WHERE classe_id = ".$_GET['classe']);
 
 			DB::setFetchMode(PDO::FETCH_CLASS);
 

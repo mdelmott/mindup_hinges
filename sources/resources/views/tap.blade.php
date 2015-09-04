@@ -24,6 +24,7 @@ use Carbon\Carbon;
                     <div class="col-md-3 col-sm-4 col-xs-4 col-md-offset-9 col-sm-offset-9 col-xs-offset-8">
                         <div class="btn-group btn-group-justified" role="group" aria-label="ButtonRetour">
                             <a href="{{ route("administration") }}" class="btn btn-default" role="button">Retour</a>
+                            <a  href="{{ url('/auth/logout') }}" class="btn btn-default" role="button">Déconnexion</a>
                         </div>
 
                         <div class="margin-top-15">
