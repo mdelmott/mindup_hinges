@@ -15,7 +15,7 @@
 
         <div class="col-md-6 col-sm-7 col-md-offset-1 margin-top-10">
             {!! Form::open(['url' => '/Scolarite/Profils/UpdateOrDelete', 'name' => 'form1']) !!}
-            {!! Form::select('eleve', $eleves, $oldeleve, ['class' => 'form-control input-select center-block margin-bottom-15', 'onChange' => 'document.form1.submit()' ]) !!}
+            {!! Form::label('eleves', 'Liste des profils :', ['class' => 'col-md-5 col-sm-2 col-xs-6 ', 'style' => 'font-size:20px']) !!}{!! Form::select('eleve', $eleves, $oldeleve, ['class' => 'form-control input-select margin-bottom-15', 'onChange' => 'document.form1.submit()' ]) !!}
             {!! Form::label('nom', 'Nom', ['class' => 'col-md-3 col-sm-3 col-xs-3']) !!}{!! Form::text('nom', $nom, ['class' => "form-control input-text"]) !!}
             <div class="clearfix"></div>
             {!! Form::label('prenom', 'Prénom', ['class' => 'col-md-3 col-sm-3 col-xs-3']) !!}{!! Form::text('prenom', $prenom, ['class' => "form-control input-text"]) !!}

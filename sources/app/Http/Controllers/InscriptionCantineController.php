@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
 use JavaScript;
+use Carbon\Carbon;
+
 
 
 class InscriptionCantineController extends Controller {
@@ -127,8 +129,12 @@ class InscriptionCantineController extends Controller {
 		$oldeleve = $profil_id;
 		$profil_id = $profils[$profil_id]->id;
 
-		$datesToReturn = str_replace('(Paris, Madrid (heure d’été))', '', $datesToReturn);
+		var_dump($datesToReturn);
+
+		$datesToReturn = str_replace(' GMT+0200 (Paris, Madrid (heure d’été))', '', $datesToReturn);
 		$dates = explode(',',$datesToReturn);
+
+		var_dump($dates);
 
 		if($hd == null){
 			$hd = 0;
@@ -139,6 +145,9 @@ class InscriptionCantineController extends Controller {
 		foreach ($dates as $d) {
 			if($d != ""){
 				$date = date_create($d);
+				var_dump($date);
+				$date2 = Carbon::createFromFormat("D M d Y H:i:s",$d);
+				var_dump($date2);
 				$repas_id = Repas::createRepas($date);
 				Profil::addRepas($profil_id,$repas_id,$hd,0);
 			}

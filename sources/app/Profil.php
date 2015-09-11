@@ -34,7 +34,7 @@ class Profil extends Model {
 
 	/* Creer un profil */
 	public static function selectAll(){
-		return DB::table("profil")->get();
+		return DB::table("profil")->orderBy('nom','asc')->get();
 
 	}
 

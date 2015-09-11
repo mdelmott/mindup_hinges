@@ -16,11 +16,12 @@
 
         <div class="col-md-6 col-sm-7 col-md-offset-1">
             {!! Form::open(['url' => '/Scolarite/Classes/UpdateOrDelete', 'name' => 'form1']) !!}
-                <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-1">{!! Form::text('nom', $nom, ['class' => "form-control", 'placeholder' => "Nom de la classe", "style" => "text-align:center"]) !!}</div>
+                <div class="col-md-5 col-sm-5 col-xs-6 ">{!! Form::label('nom', 'Nouveau nom :', ['style' => 'font-size:18px']) !!}{!! Form::text('nom', $nom, ['class' => "form-control", 'placeholder' => "Nom de la classe", "style" => "text-align:center"]) !!}</div>
                 <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-1">
-                    {!! Form::select('classe',$classes, $oldclasse, ['onChange' => 'document.form1.submit()','class' => 'form-control']) !!}
+                    {!! Form::label('classes', 'Liste des classes :', ['style' => 'font-size:18px']) !!}{!! Form::select('classe',$classes, $oldclasse, ['onChange' => 'document.form1.submit()','class' => 'form-control']) !!}
                 </div>
-                <table class="table table-striped margin-top-10">
+                <div class="clearfix"></div>
+                <table class="table table-striped margin-top-15">
                     <thead>
                     <tr><th>Nom</th><th>Prenom</th></tr>
                     </thead>
@@ -36,8 +37,8 @@
                         {!! Form::submit('Ajouter', ['name'=>'action', 'class' => 'btn btn-primary form-control'])!!}
                     </div>
                 <?php } ?>
-
-                </br></br>
+                <div class="clearfix"></div>
+                </br>
                 <div class="col-md-5 col-sm-6 col-xs-7 col-md-offset-1">{!! Form::submit('Supprimer cette classe', ['name' =>'action','class' => 'btn btn-primary form-control'])!!}</div>
                 <div class="col-md-6 col-sm-5 col-xs-5 ">{!! Form::submit('Enregistrer les modifications', ['name' => 'action','class' => 'btn btn-primary form-control'])!!}</div>
             {!! Form::close() !!}
