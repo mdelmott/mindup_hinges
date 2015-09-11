@@ -8,14 +8,14 @@
 
                 {!! Form::label('', $msg, ['style' => 'color:darkred']) !!}
                 <div class="clearfix"></div></br>
-                <table class="table table-striped margin-top-15">
-                    <thead>
-                    <tr>
-                        <th>Espace</th><th>Mot de passe </th>
-                    </tr>
-                    </thead>
-                    {!! HTML::showComptesTable($comptes) !!}
-                </table>
+            <!-- <table class="table table-striped margin-top-15">
+                <thead>
+                <tr>
+                    <th>Espace</th><th>Mot de passe </th>
+                </tr>
+                </thead>
+                {!! HTML::showComptesTable($comptes) !!}
+                </table>-->
 
             <div class="col-md-6 col-sm-6 col-xs-8 col-md-offset-3 col-sm-offset-3 col-xs-offset-2">
                 {!! Form::select('espace',$espaces, null, ['class' => 'form-control']) !!}
