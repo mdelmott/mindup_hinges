@@ -83,7 +83,7 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 				$show = '<thead><tr><th>Jour</th>';
 			}
 			foreach ($table as $t) {
-				setlocale(LC_ALL,'French');
+				setlocale(LC_ALL, 'fr_FR');
 				$d = Carbon::createFromFormat('Y-m-d',$t['date'])->formatLocalized('%a %d');
 				$show = $show . '<th>'. $d .'</th>';
 			}
@@ -127,9 +127,10 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 				$show = '<thead><tr><th>Nom</th><th>Prenom</th>';
 			}
 			foreach ($table as $t) {
-				setlocale(LC_ALL,'French');
-				$d = Carbon::createFromFormat('Y-m-d',$t['date'])->formatLocalized('%d');
-				$show = $show . '<th>'. $d .'</th>';
+				setlocale(LC_ALL, 'fr_FR');
+				$d = Carbon::createFromFormat('Y-m-d',$t['date'])->formatLocalized('%A');
+				$d2 = Carbon::createFromFormat('Y-m-d',$t['date'])->formatLocalized('%d');
+				$show = $show . '<th>'. $d2 .' '.substr($d, 0,3). '</th>';
 			}
 			$show = $show . '<th>Total</th></tr></thead>';
 			

@@ -5,6 +5,14 @@
 		<div class="row">
 			<div class="jumbotron">
 				<h1 class="text-center">Connexion</h1>
+
+				@if (count($errors) > 0)
+					<div class="alert alert-danger">
+						<p>Il y a eu un problème de connexion !</p>
+						<p>Vérifier que les identifiants sont correctes !</p>
+					</div>
+				@endif
+
 				<div class="col-md-10 col-md-offset-1">
 					{!! Form::model([]) !!}
 						{!! Form::text('login',"",['class'=>'form-control margin-top-15', 'placeholder'=>'Login']) !!}
