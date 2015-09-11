@@ -128,9 +128,8 @@ class HtmlMacrosServiceProvider extends ServiceProvider{
 			}
 			foreach ($table as $t) {
 				setlocale(LC_ALL, 'fr_FR');
-				$d = Carbon::createFromFormat('Y-m-d',$t['date'])->formatLocalized('%A');
-				$d2 = Carbon::createFromFormat('Y-m-d',$t['date'])->formatLocalized('%d');
-				$show = $show . '<th>'. $d2 .' '.substr($d, 0,3). '</th>';
+				$d = Carbon::createFromFormat('Y-m-d',$t['date'])->formatLocalized('%a %d');
+				$show = $show . '<th>'. $d .' </th>';
 			}
 			$show = $show . '<th>Total</th></tr></thead>';
 			
