@@ -113,7 +113,8 @@ class InscriptionTAPController extends Controller {
 		$oldeleve = $profil_id;
 		$profil_id = $profils[$profil_id]->id;
 
-		$datesToReturn = str_replace('(Paris, Madrid (heure d’été))', '', $datesToReturn);
+		$pattern = '/\\s[A-Za-z]*\\+[0-9]{4}\\s\\([A-Za-z,\\s()’é]*\\)/';
+		$datesToReturn = preg_replace($pattern, '', $datesToReturn);
 		$dates = explode(',',$datesToReturn);
 
 			
@@ -151,7 +152,8 @@ class InscriptionTAPController extends Controller {
 		$oldeleve = $profil_id;
 		$profil_id = $profils[$profil_id]->id;
 
-		$datesToReturn = str_replace('(Paris, Madrid (heure d’été))', '', $datesToReturn);
+		$pattern = '/\\s[A-Za-z]*\\+[0-9]{4}\\s\\([A-Za-z,\\s()’é]*\\)/';
+		$datesToReturn = preg_replace($pattern, '', $datesToReturn);
 		$dates = explode(',',$datesToReturn);
 
 		foreach ($dates as $d) {
