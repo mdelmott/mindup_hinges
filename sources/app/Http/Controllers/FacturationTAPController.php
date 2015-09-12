@@ -57,7 +57,7 @@ class FacturationTAPController extends Controller {
 			$mois_aff = [];
 
 			$mois = Util::getMonths();
-			setlocale(LC_ALL,'fr');
+			setlocale(LC_ALL,'fr_FR');
 			foreach ($mois as $m) {
 				array_push($mois_aff,utf8_encode(Carbon::createFromFormat('j F Y','1 ' . $m)->formatLocalized('%B %Y')));
 			}
